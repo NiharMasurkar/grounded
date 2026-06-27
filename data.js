@@ -468,6 +468,206 @@ const GROUNDED_DATA = {
       ]
     }
 
+    /* ---------------- QUESTS ---------------- */
+    {  
+      id: "quests",
+      title: "Quests",
+      blurb: "Main story and progression quests in Grounded, sorted by prerequisite order. Some quests trigger from collectibles or by speaking with BURG.L about specific labs.",
+      wiki: "Quests",
+      groups: [
+        {
+          name: "Main Story Progression",
+          items: [
+            {
+              n: "Investigate Surroundings",
+              w: "Investigate_Surroundings",
+              meta: "Start the game · Look around and find more evidence"
+            },
+            {
+              n: "Strange Signal",
+              w: "Strange_Signal",
+              meta: "Prerequisite: Complete Investigate Surroundings · Track the signal to its source · Use the Resource Analyzer"
+            },
+            {
+              n: "The Mysterious Machine",
+              w: "The_Mysterious_Machine",
+              meta: "Trigger: Discover the Mysterious Machine · Investigate the Mysterious Machine"
+            },
+            {
+              n: "Grounded for Repairs",
+              w: "Grounded_for_Repairs",
+              meta: "Prerequisite: Complete The Mysterious Machine · Unblock the obstructed laser · Find what is weakening one of the lasers"
+            },
+            {
+              n: "The Mysterious Machine Part 2",
+              w: "The_Mysterious_Machine_Part_2",
+              meta: "Prerequisite: Complete Grounded for Repairs · Investigate the machine further"
+            },
+            {
+              n: "Explosion",
+              w: "Explosion",
+              meta: "Prerequisite: Complete The Mysterious Machine Part 2 · Investigate the Oak Tree explosion · Explore the Oak Lab · Help BURG.L stand · Chat with BURG.L"
+            },
+            {
+              n: "Random Access Memories",
+              w: "Random_Access_Memories",
+              meta: "Prerequisite: Complete Explosion · Use the ASL Terminal biometric scanner · Retrieve the Super Chips for BURG.L"
+            },
+            {
+              n: "The Missing Scientist",
+              w: "The_Missing_Scientist",
+              meta: "Prerequisite: Complete Random Access Memories · Locate Wendell's SCA.B · Enter the Undershed · Find Wendell's lab · Speak to Dr. Tully"
+            },
+            {
+              n: "Troubles Brewin'",
+              w: "Troubles_Brewin%27",
+              meta: "Prerequisite: Complete The Missing Scientist · Go to the JavaMatic · Brew the Embiggening Cocktail · Defend the MIX.R modules · Retrieve the filled Embiggening Cell"
+            },
+            {
+              n: "Go Big Or Never Go Home",
+              w: "Go_Big_Or_Never_Go_Home",
+              meta: "Prerequisite: Complete Troubles Brewin' · Return to the SPAC.R · Install the Embiggening Cell · Turn on the SPAC.R to go home"
+            }
+          ]
+        },
+        {
+          name: "BURG.L Super Chip Labs",
+          items: [
+            {
+              n: "The Hedge Lab",
+              w: "The_Hedge_Lab",
+              meta: "Trigger: Talk to BURG.L about the Hedge Lab · Find the Hedge Lab · Explore the lab · Find the terminal password · Retrieve the Hedge Super Chip"
+            },
+            {
+              n: "The Pond",
+              w: "The_Pond",
+              meta: "Trigger: Talk to BURG.L about the Pond Lab · Find the Pond Lab · Explore the depths · Switch on all breakers · Retrieve the Pond Super Chip"
+            },
+            {
+              n: "The Haze Lab",
+              w: "The_Haze_Lab",
+              meta: "Trigger: Talk to BURG.L about the Haze Lab · Find and enter the Haze Lab · Retrieve the Haze Super Chip"
+            },
+            {
+              n: "The Black Ant Lab",
+              w: "The_Black_Ant_Lab",
+              meta: "Trigger: Talk to BURG.L about the Black Anthill Lab · Investigate the Black Ant Lab · Terminate the Assistant Manager · Retrieve the Black Ant Hill Super Chip"
+            }
+          ]
+        },
+        {
+          name: "Collectible-Triggered Quests",
+          items: [
+            {
+              n: "Milk Molars",
+              w: "Milk_Molars",
+              meta: "Trigger: Collect a Milk Molar · See BURG.L about Milk Molars"
+            },
+            {
+              n: "Mega Milk Molars",
+              w: "Mega_Milk_Molars",
+              meta: "Trigger: Collect a Mega Milk Molar · See BURG.L about Mega Milk Molars"
+            }
+          ]
+        },
+        {
+          name: "Side Quests",
+          items: [
+            {
+              n: "BURG.L Quests",
+              w: "BURG.L_Quests",
+              meta: "Given by BURG.L · 99 non-repeatable apprentice quests · Daily quests unlock after completing 20 apprentice quests"
+            }
+          ]
+        }
+      ]
+    },
+
+    /* ---------------- MUTATIONS ---------------- */
+    {
+      id: "mutations",
+      title: "Mutations",
+      blurb: "Perks unlocked through combat, exploration, boss kills, BURG.L purchases, collectibles, and world challenges. Some mutations have multiple phases that upgrade as their requirements are repeated.",
+      wiki: "Mutations",
+      groups: [
+        {
+          name: "Purchasable from BURG.L",
+          items: [
+            { n: "Meat Shield", w: "Meat_Shield", meta: "One phase · 3,000 Raw Science · +50 Max Health · Available from BURG.L" },
+            { n: "Buff Lungs", w: "Buff_Lungs", meta: "One phase · 3,000 Raw Science · +50 Max Stamina · Requires Red Anthill BURG.L Chip" },
+            { n: "Daredevil", w: "Daredevil", meta: "One phase · 3,000 Raw Science · −50% Fall Damage · Cannot die from fall damage at full health · Requires Hedge BURG.L Chip" },
+            { n: "Battle Buddies", w: "Battle_Buddies", meta: "One phase · 3,000 Raw Science · −75% friendly fire dealt and taken · Requires Pond BURG.L Chip" },
+            { n: "Dissection Expert", w: "Dissection_Expert", meta: "One phase · 3,000 Raw Science · +10% rare creature loot drop chance · Requires Forgotten BURG.L Chip" }
+          ]
+        },
+        {
+          name: "Weapon Mastery Mutations",
+          items: [
+            { n: "Lil Fist", w: "Lil_Fist", meta: "Phases: kill 40 / 100 / 200 creatures with fists · Stacking unarmed damage buff · Phase 3 adds guaranteed second punch" },
+            { n: "Chopper", w: "Chopper", meta: "Phases: kill 40 / 100 / 200 creatures with axes · Axe hits reduce Busting, Chopping, and Stabbing resistances · Phase 3 removes stamina regen delay while attacking" },
+            { n: "Smasher", w: "Smasher", meta: "Phases: kill 40 / 100 / 200 creatures with hammers · Slows enemy attack speed · Phase 3 adds extra stun" },
+            { n: "Javelineer", w: "Javelineer", meta: "Phases: kill 40 / 100 / 200 creatures with spears · Reflects damage after spear hits · Increases spear throwing damage · Phase 3 boosts spear charge attacks" },
+            { n: "Assassin", w: "Assassin", meta: "Phases: kill 40 / 100 / 200 creatures with daggers · Dagger attacks inflict bleed · Phase 3 lowers enemy bleed resistance" },
+            { n: "Sharpshooter", w: "Sharpshooter", meta: "Phases: kill 40 / 100 / 200 creatures with bows or crossbows · Increases critical hit chance · Phase 3 gives candy arrows special effects" },
+            { n: "Barbarian", w: "Barbarian", meta: "Phases: kill 40 / 100 / 200 creatures with clubs · Club attacks trigger Rage for increased damage but reduce perfect block timing · Phase 3 adds health regen while enraged" },
+            { n: "Blademaster", w: "Blademaster", meta: "Phases: kill 40 / 100 / 200 creatures with swords · Sword attacks reduce enemy damage · Phase 3 reduces exhaustion time after sword attacks" },
+            { n: "Whittle Wizard", w: "Whittle_Wizard", meta: "Phases: kill 40 / 100 / 200 creatures with candy staves · Staff attacks apply elemental effects · Phase 3 reduces staff stamina cost" }
+          ]
+        },
+        {
+          name: "Combat, Skill, and Utility Progression",
+          items: [
+            { n: "Parry Master", w: "Parry_Master", meta: "Phases: perfect block 20 / 60 / 100 times · Perfect blocks refund stamina" },
+            { n: "Grass Master", w: "Grass_Master", meta: "Phases: chop 50 / 200 / 500 blades of grass · Increases chopping efficiency · Harvesting grass refunds stamina" },
+            { n: "Rock Cracker", w: "Rock_Cracker", meta: "Phases: bust 25 / 60 / 105 rocks · Increases busting efficiency" },
+            { n: "Hauling Hero", w: "Hauling_Hero", meta: "Phases: reach Coziness Level 2 / 3 / 4 · Increases hauling strength by +5 / +10 / +15" },
+            { n: "Cardio Fan", w: "Cardio_Fan", meta: "Phases: exhaust yourself 100 / 250 / 500 times · Increases stamina regeneration · Reduces exhaustion time" },
+            { n: "Reliable Friend", w: "Reliable_Friend", meta: "Phases: revive a friend 5 / 15 / 30 times · Increases player revive speed" },
+            { n: "Guard Dog", w: "Guard_Dog", meta: "Phases: complete 1 / 4 / 9 defense events · Increased damage during Factional Raids, MIX.Rs, Spicy Coaltana Event, and JavaMatic Event" }
+          ]
+        },
+        {
+          name: "Exploration and Collection Unlocks",
+          items: [
+            { n: "Coup de Grass", w: "Coup_de_Grass", meta: "Phases: discover the 4 Leaf Clover landmark and roll a 20 on the D20 at Minotaur Maze's End · Increases critical hit chance" },
+            { n: "Trapper PEEP.R", w: "Trapper_PEEP.R", meta: "Phases: obtain 20 / 40 / 60 Gold Cards · Increases critical hit damage" },
+            { n: "Rascal Rogue", w: "Rascal_Rogue", meta: "Phases: find 1 / 4 / 7 Statue Figurines · Melee attacks have a chance to steal an item from a creature" },
+            { n: "Juicy", w: "Juicy", meta: "One phase · Discover 5 Juice Boxes · Thirst decreases 50% slower" },
+            { n: "Natural Explorer", w: "Natural_Explorer", meta: "Phases: discover 20 / 50 / 80 landmarks · Increases movement speed outside combat" },
+            { n: "Merteen", w: "Merteen", meta: "One phase · Discover 5 landmarks inside the Koi Pond · +10% underwater oxygen time · +15% swim speed" }
+          ]
+        },
+        {
+          name: "Food and Resistance Mutations",
+          items: [
+            { n: "Fresh Defense", w: "Fresh_Defense", meta: "Phases: eat 1 / 5 / 10 Mint Shards · Increases gas and burning resistance · Reduces sizzle rate" },
+            { n: "Spicy Safety", w: "Spicy_Safety", meta: "Phases: eat 1 / 3 Spicy Shards · Reduces smashing and stabbing damage taken" },
+            { n: "Sour Sensation", w: "Sour_Sensation", meta: "Phases: eat 1 / 5 / 10 Sour Lumps · Reflects damage back to attackers" },
+            { n: "Ant-nihilator", w: "Ant-nihilator", meta: "Phases: kill 15 / 45 / 100 ants · Increases damage against Red, Black, and Fire Ants · Phase 3 adds ant damage resistance" },
+            { n: "Mithridatism", w: "Mithridatism", meta: "Phases: kill 1 / 5 / 10 Wolf Spiders · Increases poison resistance" }
+          ]
+        },
+        {
+          name: "Boss, Lab, and Major Enemy Unlocks",
+          items: [
+            { n: "Mom Genes", w: "Mom_Genes", meta: "Kill the Hedge Broodmother · Attacks and perfect blocks can summon friendly Spiderlings · Increases poison attack damage" },
+            { n: "Truffle Tussle", w: "Truffle_Tussle", meta: "Kill the Infected Ladybug in the Haze Lab · Unarmed attacks can create fungal explosions" },
+            { n: "Mantsterious Stranger", w: "Mantsterious_Stranger", meta: "Kill the Mant · Attacks have a chance to summon a friendly Mant ally" },
+            { n: "Apex Predator", w: "Apex_Predator", meta: "Kill the Mantis · Unlocks hidden effects for boss weapons such as Club of the Mother Demon, Scythe of Blossoms, Bard's Bow, and Blaster of the Moldy Matriarch" },
+            { n: "Corporate Kickback", w: "Corporate_Kickback", meta: "Kill Director Schmector · Blocked attacks can trigger temporary melee lifesteal" },
+            { n: "Shocking Dismissal", w: "Shocking_Dismissal", meta: "Kill the Assistant Manager · Blocked attacks can charge the next melee hit with electric AOE damage" },
+            { n: "Bardic Inspiration", w: "Bardic_Inspiration", meta: "Kill the Wasp Queen · Bow and crossbow attacks can apply bardic buffs to nearby players" },
+            { n: "Spore Lord", w: "Spore_Lord", meta: "Kill the Infected Broodmother · Explosive damage can grant stacking combat buffs" }
+          ]
+        },
+        {
+          name: "Ant Queen Progression",
+          items: [
+            { n: "Antbassador", w: "Antbassador", meta: "Phases: befriend 1 / 2 / 3 Ant Queens · Makes Red, Black, and Fire Ant factions progressively neutral" }
+          ]
+        }
+      ]
+    }
     /* More categories (Creatures, Tools, Armor, Trinkets, Consumables,
        Edibles, Resources, Mutations, Status Effects, Quests, Achievements,
        Creature Cards …) are appended here in subsequent passes. */
