@@ -73,10 +73,16 @@
   label.item input:checked::after{content:"";position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
   .icon{width:34px;height:34px;flex-shrink:0;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.95rem;color:#fff;background:var(--accent)}
   .body{flex:1;min-width:0}
-  .body .name{font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:7px}
+  .body .name{font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
   .body .name .lnk{font-size:.72rem;color:var(--text-soft);font-weight:400}
   .body .meta{font-size:.83rem;color:var(--text-soft);margin-top:2px;line-height:1.45}
-  label.item input:checked ~ .body .name{color:var(--text-soft);text-decoration:line-through}
+
+  .tier{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:18px;padding:0 6px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;line-height:1;color:#fff;letter-spacing:.02em;flex-shrink:0;text-decoration:none}
+  .tier-t1{background:#2e7d32}
+  .tier-t2{background:#2563eb}
+  .tier-t3{background:#c62828}
+  label.item input:checked ~ .body .item-title{color:var(--text-soft);text-decoration:line-through}
+  label.item input:checked ~ .body .tier{opacity:.55}
 
   .controls{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 26px}
   .btn{font-family:'IBM Plex Mono',monospace;font-size:.8rem;border:1px solid var(--border);background:var(--bg);color:var(--text);padding:7px 14px;border-radius:6px;cursor:pointer;transition:all .15s}
@@ -122,9 +128,7 @@
       <div class="eyebrow">Survival · Obsidian Entertainment</div>
       <h1>Grounded</h1>
       <p class="lede">A first- and third-person cooperative survival game set in the micro-world of a suburban backyard. Track every system in the game below — your progress is saved in this browser.</p>
-      <div>
-        <span class="chip" id="verChip">v1.4</span>
-      </div>
+      <div><span class="chip" id="verChip"></span></div>
       <p style="margin-top:18px">You play as one of four shrunken teens — Max, Willow, Pete, or Hoops — reduced to the size of an ant. Survive solo or with up to three other players: work through story Quests, explore the Backyard's Biomes, battle its Creatures, gather Resources, craft Tools and Armor, and build bases while hunting for food and water to stay alive.</p>
       <div class="callout"><strong>How this works:</strong> Tick off each entry as you discover or complete it. Progress saves automatically in your browser. The bar in the top-right shows overall completion across every category. Each entry's <strong>↗</strong> links to its source page on the Grounded Wiki for full detail.</div>
       <div class="controls">
@@ -143,7 +147,7 @@
   Grounded is a trademark of Obsidian Entertainment / Xbox Game Studios. Unofficial; not affiliated with Obsidian or Microsoft.
 </footer>
 
-<script src="data.js"></script>
+<script src="./data.js?v=20260627-tier"></script>
 <script>
 const STORE_KEY = "grounded_progress_v2";
 let state = {};
@@ -152,7 +156,19 @@ const save = () => { try{ localStorage.setItem(STORE_KEY, JSON.stringify(state))
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const key = (cat,gi,ii) => `${cat}:${gi}:${ii}`;
 
-document.getElementById("verChip").textContent = GROUNDED_DATA.meta.version;
+const getTier = it => {
+  const text = `${it.tier || ""} ${it.meta || ""}`;
+  const match = text.match(/\b(?:T|Tier[\s-]*)([123])\b/i);
+  return match ? `T${match[1]}` : "";
+};
+
+const tierBadge = tier => {
+  if (!tier) return "";
+  return `<span class="tier tier-${tier.toLowerCase()}" title="Tier ${tier.slice(1)}">${tier}</span>`;
+};
+
+const verChip = document.getElementById("verChip");
+if (verChip) verChip.textContent = GROUNDED_DATA.meta.version;
 
 const catsEl = document.getElementById("cats");
 const navCatsEl = document.getElementById("navCats");
@@ -187,11 +203,13 @@ GROUNDED_DATA.categories.forEach(cat => {
       const checked = state[k] ? "checked" : "";
       const letter = esc((it.n[0]||"?").toUpperCase());
       const link = it.w ? `<a class="lnk" href="${WIKI}${it.w}" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a>` : "";
+      const tier = getTier(it);
+      const badge = tierBadge(tier);
       html += `<label class="item">
         <input type="checkbox" data-k="${k}" ${checked}>
         <span class="icon" aria-hidden="true">${letter}</span>
         <span class="body">
-          <span class="name">${esc(it.n)} ${link}</span>
+          <span class="name">${badge}<span class="item-title">${esc(it.n)}</span> ${link}</span>
           ${it.meta ? `<span class="meta">${esc(it.meta)}</span>` : ""}
         </span>
       </label>`;
