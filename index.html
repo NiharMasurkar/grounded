@@ -77,12 +77,17 @@
   .body .name .lnk{font-size:.72rem;color:var(--text-soft);font-weight:400}
   .body .meta{font-size:.83rem;color:var(--text-soft);margin-top:2px;line-height:1.45}
 
-  .tier{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:18px;padding:0 6px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;line-height:1;color:#fff;letter-spacing:.02em;flex-shrink:0;text-decoration:none}
+  .badge{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:18px;padding:0 6px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;line-height:1;color:#fff;letter-spacing:.02em;flex-shrink:0;text-decoration:none}
   .tier-t1{background:#2e7d32}
   .tier-t2{background:#2563eb}
   .tier-t3{background:#c62828}
+  .flavor{min-width:24px;border:1px solid transparent}
+  .flavor-fresh{background:#2563eb}
+  .flavor-spicy{background:#c62828}
+  .flavor-sour{background:#2e7d32}
+  .flavor-salty{background:#fff;color:#1d2521;border-color:#cfd8d3}
   label.item input:checked ~ .body .item-title{color:var(--text-soft);text-decoration:line-through}
-  label.item input:checked ~ .body .tier{opacity:.55}
+  label.item input:checked ~ .body .badge{opacity:.55}
 
   .controls{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 26px}
   .btn{font-family:'IBM Plex Mono',monospace;font-size:.8rem;border:1px solid var(--border);background:var(--bg);color:var(--text);padding:7px 14px;border-radius:6px;cursor:pointer;transition:all .15s}
@@ -147,7 +152,7 @@
   Grounded is a trademark of Obsidian Entertainment / Xbox Game Studios. Unofficial; not affiliated with Obsidian or Microsoft.
 </footer>
 
-<script src="./data.js?v=20260627-tier"></script>
+<script src="./data.js?v=20260627-tier-flavors"></script>
 <script>
 const STORE_KEY = "grounded_progress_v2";
 let state = {};
@@ -164,8 +169,24 @@ const getTier = it => {
 
 const tierBadge = tier => {
   if (!tier) return "";
-  return `<span class="tier tier-${tier.toLowerCase()}" title="Tier ${tier.slice(1)}">${tier}</span>`;
+  return `<span class="badge tier tier-${tier.toLowerCase()}" title="Tier ${tier.slice(1)}">${tier}</span>`;
 };
+
+const FLAVORS = [
+  { key: "fresh", label: "Fr", name: "Fresh", rx: /\bFresh\b/i },
+  { key: "spicy", label: "Sp", name: "Spicy", rx: /\bSpicy\b/i },
+  { key: "sour", label: "So", name: "Sour", rx: /\bSour\b/i },
+  { key: "salty", label: "Sa", name: "Salty", rx: /\bSalty\b/i }
+];
+
+const getFlavors = it => {
+  const text = `${it.flavor || ""} ${it.element || ""} ${it.n || ""} ${it.meta || ""}`;
+  return FLAVORS.filter(f => f.rx.test(text));
+};
+
+const flavorBadges = flavors => flavors.map(f =>
+  `<span class="badge flavor flavor-${f.key}" title="${f.name}">${f.label}</span>`
+).join("");
 
 const verChip = document.getElementById("verChip");
 if (verChip) verChip.textContent = GROUNDED_DATA.meta.version;
@@ -204,12 +225,12 @@ GROUNDED_DATA.categories.forEach(cat => {
       const letter = esc((it.n[0]||"?").toUpperCase());
       const link = it.w ? `<a class="lnk" href="${WIKI}${it.w}" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a>` : "";
       const tier = getTier(it);
-      const badge = tierBadge(tier);
+      const badges = tierBadge(tier) + flavorBadges(getFlavors(it));
       html += `<label class="item">
         <input type="checkbox" data-k="${k}" ${checked}>
         <span class="icon" aria-hidden="true">${letter}</span>
         <span class="body">
-          <span class="name">${badge}<span class="item-title">${esc(it.n)}</span> ${link}</span>
+          <span class="name">${badges}<span class="item-title">${esc(it.n)}</span> ${link}</span>
           ${it.meta ? `<span class="meta">${esc(it.meta)}</span>` : ""}
         </span>
       </label>`;
