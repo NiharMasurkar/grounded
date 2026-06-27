@@ -1,10 +1,6 @@
 # Grounded — Wiki & Progress Tracker
 
-A self-hosted, minimal (TechDocs-style) Grounded companion site with a built-in
-progress tracker. Every category renders as a checklist with per-category and
-**overall** progress bars (top-right). Progress is saved in the browser
-(`localStorage`). No assets are loaded from fandom.com at runtime — each entry
-just carries a small `↗` reference link back to its source page.
+A self-hosted, minimal Grounded companion site with a built-in progress tracker. Every category renders as a checklist with per-category and **overall** progress bars (top-right). Progress is saved in the browser (`localStorage`). No assets are loaded from fandom.com at runtime — each entry just carries a small `↗` reference link back to its source page.
 
 ## Files
 - `index.html` — the whole UI (HTML/CSS/JS). Renders entirely from `data.js`.
@@ -28,15 +24,7 @@ Open `data.js` and push another object into `GROUNDED_DATA.categories`:
     ]},
   ]
 }
-```
-Reload — new checkboxes, counts, and bars appear with no other changes.
 
-## Deploy on GitHub Pages
-1. Push these files to a repo's default branch.
-2. Settings → Pages → Deploy from a branch → `main` / `/ (root)`.
-3. The `CNAME` file targets `grounded.niharmasurkar.com`.
-4. DNS: add a CNAME record `grounded` → `<yourusername>.github.io`, then set the
-   custom domain in Pages settings and enable Enforce HTTPS once the cert issues.
 
 ## License & attribution
 Game text/data adapted from the [Grounded Wiki](https://grounded.fandom.com/wiki/Grounded)
