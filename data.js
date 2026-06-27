@@ -18,139 +18,144 @@ const GROUNDED_DATA = {
   },
 
   categories: [
-    /* ---------------- BIOMES ---------------- */
+
+    /* ---------------- QUESTS ---------------- */
     {
-      id: "biomes",
-      title: "Biomes",
-      blurb: "Unique environments scattered throughout the Backyard. The yard is split into the lower yard (where you start) and the late-game Upper Yard, which holds far stronger creatures and resources.",
-      wiki: "Biomes",
+      id: "quests",
+      title: "Quests",
+      blurb: "Story Quests form the main game chain (tied to Biomes and Labs), while Tutorial Quests teach core mechanics on the side. BURG.L also hands out a large pool of apprentice and daily side quests.",
+      wiki: "Quests",
       groups: [
         {
-          name: "Surface Biomes",
+          name: "Story Quests",
           items: [
-            { n: "BBQ Spill", w: "BBQ_Spill", meta: "Notable: EverChar Coal Chunk · Landmark: Charcoal Hot Springs" },
-            { n: "Flooded Zone", w: "Flooded_Zone", meta: "Notable: Clay · Landmarks: Garden Gnome, La Bise Can, Rash, Squirts Carton" },
-            { n: "Flower Bed", w: "Flower_Bed", meta: "Notable: Flower Petal, Nectar · Landmarks: Armed Raspberry Punch-O, Field Station, Welp Flavordrink" },
-            { n: "Grasslands", w: "Grasslands", meta: "Notable: Mint Shard, Rotten Larva Blade · Many landmarks (Baseball, Frankenline, MIX.R, Mysterious Machine, Upper Yard Ascent…)" },
-            { n: "Haze", w: "Haze", meta: "Notable: Brittle Marble/Quartzite Shard, Fungal Growth, Mint Shard · Landmarks: Haze Lab, MIX.R, Peach Fuzz Punch-O" },
-            { n: "Hedge", w: "Hedge", meta: "Notable: Berry Chunk · Landmarks: Hedge Lab, Hedge Ascent, Flingman Flying Disc, MIX.R" },
-            { n: "Koi Pond", w: "Koi_Pond", meta: "Notable: Eelgrass Strand, Lilypad Wax, Raw Tadpole Meat, Water Boatman Fin · Landmarks: Depths Mouth, Sunken Pot, Wedding Ring" },
-            { n: "Moldorc Highlands", w: "Moldorc_Highlands", meta: "Notable: Pond Moss, Tiger Mosquito Beak · Landmarks: Castle Moldorc Playset, Mysterious Lab, MIX.R" },
-            { n: "Oak Hill", w: "Oak_Hill", meta: "Notable: Acorn Bits, Acorn Shell, Acorn Top · Landmarks: Oak Lab, Old Ant Hill" },
-            { n: "Picnic Table", w: "Picnic_Table", meta: "Notable: Crusty Roly Poly Legplates, Gum Nugget · Landmarks: Cooler Box, Minotaur Maze's End" },
-            { n: "Sandbox", w: "Sandbox", meta: "Notable: Antlion Part/Pincer, Spicy Shard · Landmarks: Sandbox Lab Outpost, Black Anthill Descent, MIX.R" },
-            { n: "Shed Surroundings", w: "Shed_Surroundings", meta: "Notable: Candy Cornlet, Dust Mite Fuzz, Gunpowder Clump, Twinkling Shell · Landmarks: Buster Cap Gun, Full-Sized SCA.B" },
-            { n: "Trash Heap", w: "Trash_Heap", meta: "Notable: Crusty Roly Poly Helmet, Rotten Food, Spicy Shard · Landmarks: Trashed AARTZ 3000, Crushed La Bise Can" },
-            { n: "Upper Grasslands", w: "Upper_Grasslands", meta: "Notable: Black Ox Horn/Part, Fire Ant Head/Part, Moth Fuzz/Scale, Tick Fang · Landmarks: JavaMatic, Lawnmower, Stump" },
-            { n: "Woodpile", w: "Woodpile", meta: "Notable: Wooden Splinter · Landmark: Field Station" }
+            { n: "Investigate Surroundings", w: "Quests", meta: "Look around for what you can find; find more evidence · Prereq: start the game" },
+            { n: "Strange Signal", w: "Quests", meta: "Prereq: complete Investigate Surroundings" },
+            { n: "The Mysterious Machine", w: "Mysterious_Machine", meta: "Discover the Mysterious Machine" },
+            { n: "Grounded for Repairs", w: "Quests", meta: "Unblock the obstructed laser; find what's weakening a laser · Prereq: The Mysterious Machine" },
+            { n: "The Mysterious Machine Part 2", w: "Mysterious_Machine", meta: "Prereq: complete Grounded For Repairs" },
+            { n: "Explosion", w: "Quests", meta: "Investigate the Oak Tree explosion; explore the lab; help & chat with BURG.L · Prereq: Mysterious Machine Part 2" },
+            { n: "Random Access Memories", w: "Quests", meta: "Use the Biometric Scanner at the Oak Lab ASL Terminal; retrieve all four Super Chips · Prereq: Explosion" },
+            { n: "The Black Ant Lab", w: "Black_Anthill_Lab", meta: "Talk to BURG.L about the Black Anthill Lab" },
+            { n: "The Hedge Lab", w: "Hedge_Lab", meta: "Find & explore the Hedge Lab; get terminal password; retrieve the Hedge Super Chip" },
+            { n: "The Haze Lab", w: "Haze_Lab", meta: "Find & enter the Haze Lab; find & return the Haze Super Chip" },
+            { n: "The Pond", w: "Pond_Lab", meta: "Find the Pond Lab; switch all breakers; explore the submerged lab; return the Pond Super Chip" },
+            { n: "The Missing Scientist", w: "Quests", meta: "Prereq: complete Random Access Memories" },
+            { n: "Troubles Brewin'", w: "JavaMatic", meta: "Brew the Embiggening Cocktail at the JavaMatic; repair & defend the MIX.R modules · Prereq: The Missing Scientist" },
+            { n: "Go Big Or Never Go Home", w: "Quests", meta: "Install the Embiggening Cell in the SPAC.R and turn it on · Prereq: Troubles Brewin'" },
+            { n: "Milk Molars", w: "Milk_Molars", meta: "Collect a Milk Molar" },
+            { n: "Mega Milk Molars", w: "Milk_Molars", meta: "Collect a Mega Milk Molar" }
           ]
         },
         {
-          name: "Underground Biomes",
+          name: "Tutorial Quests",
           items: [
-            { n: "Anthills", w: "Anthills", meta: "Notable: Ant Eggs & Mandibles (Black/Red/Fire), Marble/Quartzite Shards · Landmark: Black Anthill Lab" },
-            { n: "Antlion Burrows", w: "Antlion_Burrows", meta: "Notable: Crusty Roly Poly Breastplate, Salt Shard" },
-            { n: "Brawny Boy Bin", w: "Brawny_Boy_Bin", meta: "Notable: Wasp Paper · Landmarks: Wasp Nest, Large Disassembled TAYZ.T" },
-            { n: "Caverns", w: "Caverns", meta: "Notable: Rotten Red Ant Club · Landmark: Field Station" },
-            { n: "Pond Caves", w: "Pond_Caves", meta: "Notable: Rotten Fin Flops" },
-            { n: "Pond Depths", w: "Pond_Depths", meta: "Notable: Koi Fish Scale, Rotten Stinger Spear, Sunken Bone · Landmarks: Pond Lab, Sunken T-Rex" },
-            { n: "Spider Caves", w: "Spider_Caves", meta: "Notable: Web Fiber" },
-            { n: "Termite Den", w: "Termite_Den", meta: "Notable: Sturdy Marble/Quartzite Shard, Termite Chompers, Termite King Carapace, Termite Part" },
-            { n: "Undershed", w: "Undershed", meta: "Notable: Lint · Landmarks: Undershed Lab, Undershed Sinkhole" },
-            { n: "Upper Yard Caverns", w: "Upper_Yard_Caverns", meta: "Late-game cavern network beneath the Upper Yard" }
+            { n: "A Little Slurp", w: "Quests", meta: "Find water (and clean water if Nasty Water drunk) · Trigger: reach 50% Water" },
+            { n: "A Small Snack", w: "Quests", meta: "Find & eat food; pick and eat a mushroom · Trigger: reach 50% Hunger" },
+            { n: "Rock Bottom", w: "Quests", meta: "Use the Resource Analyzer on Plant Fiber & Pebblet · Trigger: ~3.5 min without analyzing" },
+            { n: "Armed and Mini", w: "Quests", meta: "Prereq: complete Rock Bottom" },
+            { n: "Workbench Woes", w: "Quests", meta: "Trigger: one day passes without making a Workbench" },
+            { n: "Lucky Find", w: "Quests", meta: "Prereq: complete Workbench Woes" },
+            { n: "Advanced Bushcraft", w: "Quests", meta: "Craft a piece of armor · Prereq: complete Lucky Find" },
+            { n: "Apprentice Smith", w: "Quests", meta: "Trigger: obtain a Brittle Marble or Quartzite Shard" },
+            { n: "Build Shelter", w: "Quests", meta: "Trigger: after 17:00 on day one" },
+            { n: "Settling In", w: "Quests", meta: "Set respawn at your Lean-To · Prereq: complete Build Shelter" },
+            { n: "Catching Some Zs", w: "Quests", meta: "Sleep through the night at your lean-to · Trigger: after 22:00 day one" },
+            { n: "Light It Up", w: "Quests", meta: "Craft a torch · Trigger: enter a cave or nightfall" },
+            { n: "It's Just a Scratch", w: "Quests", meta: "Take any damage or perfect-block an attack" },
+            { n: "Bug Knowledge", w: "Quests", meta: "Trigger: one day passes without unlocking a Creature Card" },
+            { n: "Diving The Depths", w: "Quests", meta: "Trigger: drown in the Koi Pond with no diving gear" },
+            { n: "Spending Science", w: "Quests", meta: "Buy a Science Shop upgrade at the ASL Terminal · Prereq: 1st objective of Random Access Memories" }
+          ]
+        },
+        {
+          name: "BURG.L Side Quests",
+          items: [
+            { n: "Apprentice Quests (99 total)", w: "BURG.L_Quests", meta: "99 non-repeatable tasks given by BURG.L. Completing 20 unlocks daily quests." },
+            { n: "Daily Quests", w: "BURG.L_Quests", meta: "Repeatable daily tasks from BURG.L; rerollable once per day. Unlocked after 20 apprentice quests." }
+          ]
+        }
+      ]
+    }
+,
+    
+    /* ---------------- MUTATIONS ---------------- */
+    {
+      id: "mutations",
+      title: "Mutations",
+      blurb: "Perks earned by completing challenges. You start with 2 equip slots (up to 5 via Milk Molars). Most unlockable mutations have 3 phases that upgrade as you repeat a task. There are 41 total.",
+      wiki: "Mutations",
+      groups: [
+        {
+          name: "Purchasable (from BURG.L)",
+          items: [
+            { n: "Meat Shield", w: "Mutations", meta: "Increases Max Health by 50 · Buy from BURG.L (Raw Science)" },
+            { n: "Buff Lungs", w: "Mutations", meta: "Increases Max Stamina by 50 · Requires Red Anthill BURG.L Chip" },
+            { n: "Daredevil", w: "Mutations", meta: "−50% fall damage; can't die to fall damage at full health · Requires Hedge BURG.L Chip" },
+            { n: "Battle Buddies", w: "Mutations", meta: "−75% friendly-fire damage dealt & taken · Requires Pond BURG.L Chip" },
+            { n: "Dissection Expert", w: "Mutations", meta: "+10% creature loot drop-chance · Requires Forgotten BURG.L Chip" }
+          ]
+        },
+        {
+          name: "Unlockable — Weapon Mastery",
+          items: [
+            { n: "Lil Fist", w: "Mutations", meta: "Stacking unarmed damage buff; P3: every punch guarantees a 2nd hit · Kill 40/100/200 with fists" },
+            { n: "Chopper", w: "Mutations", meta: "Axe hits lower Bust/Chop/Stab resist; P3: negates stamina regen delay · Kill 40/100/200 with an Axe" },
+            { n: "Smasher", w: "Mutations", meta: "Hammer hits slow target attack speed; P3: +6 stun · Kill 40/100/200 with a Hammer" },
+            { n: "Javelineer", w: "Mutations", meta: "Spear hits reflect damage; +throw damage; P3: +30% charge damage · Kill 40/100/200 with a Spear" },
+            { n: "Assassin", w: "Mutations", meta: "Dagger hits inflict bleed; P3: −25% enemy bleed resist · Kill 40/100/200 with a Dagger" },
+            { n: "Sharpshooter", w: "Mutations", meta: "Bow/crossbow crit chance up; P3: candy arrows gain effects · Kill 40/100/200 with a Bow/Crossbow" },
+            { n: "Barbarian", w: "Mutations", meta: "Clubs trigger Rage (+damage, −block window); P3: regen while raged · Kill 40/100/200 with a Club" },
+            { n: "Blademaster", w: "Mutations", meta: "Sword hits lower enemy damage; P3: −90% exhaustion time · Kill 40/100/200 with a Sword" },
+            { n: "Whittle Wizard", w: "Mutations", meta: "Candy staffs apply element effects; P3: −50% staff stamina cost · Kill 40/100/200 with a Candy Staff" }
+          ]
+        },
+        {
+          name: "Unlockable — Utility & Gathering",
+          items: [
+            { n: "Parry Master", w: "Mutations", meta: "Perfect blocks refund stamina (25/50/100) · Perfect Block 20/60/100 times" },
+            { n: "Grass Master", w: "Mutations", meta: "+Chopping efficiency; grass harvest refunds stamina · Chop 50/200/500 blades of grass" },
+            { n: "Rock Cracker", w: "Mutations", meta: "+Busting efficiency (50/75/100%) · Bust 25/60/105 rocks" },
+            { n: "Hauling Hero", w: "Mutations", meta: "+Hauling Strength (+5/+10/+15) · Reach Coziness Level 2/3/4" },
+            { n: "Coup de Grass", w: "Mutations", meta: "+Crit chance (2.5/5%) · Find 4-Leaf Clover landmark; roll a 20 at Minotaur Maze's End" },
+            { n: "Trapper PEEP.R", w: "Mutations", meta: "+Crit damage (20/40/60%) · Obtain 20/40/60 Gold Creature Cards" },
+            { n: "Rascal Rogue", w: "Mutations", meta: "Melee hits can steal loot (2/5/10%) · Find 1/4/7 Statue Figurines" },
+            { n: "Juicy", w: "Mutations", meta: "Thirst decreases 50% slower · Discover 5 Juice Boxes" },
+            { n: "Natural Explorer", w: "Mutations", meta: "+Movement Speed (20/35/50%, out of combat) · Discover 20/50/80 Landmarks" },
+            { n: "Merteen", w: "Mutations", meta: "+10% underwater oxygen, +15% swim speed · Discover 5 Koi Pond landmarks" },
+            { n: "Cardio Fan", w: "Mutations", meta: "+Stamina regen, −exhaustion time · Exhaust the player 100/250/500 times" },
+            { n: "Reliable Friend", w: "Mutations", meta: "+Revive speed (25/50/75%) · Revive a friend 5/15/30 times" }
+          ]
+        },
+        {
+          name: "Unlockable — Defensive & Elemental",
+          items: [
+            { n: "Fresh Defense", w: "Mutations", meta: "+Gas/burn resistance, −sizzle rate · Eat 1/5/10 Mint Shards" },
+            { n: "Spicy Safety", w: "Mutations", meta: "−Smash/stab damage taken (25/50%) · Eat 1/3 Spicy Shards" },
+            { n: "Sour Sensation", w: "Mutations", meta: "Reflects damage to attacker (50/100/150%) · Eat 1/5/10 Sour Lumps" },
+            { n: "Ant-nihilator", w: "Mutations", meta: "+Damage vs ants; P3: +10% ant damage resist · Kill 15/45/100 Black/Fire/Red Ants" },
+            { n: "Mithridatism", w: "Mutations", meta: "+Poison resistance (25/50/75%) · Kill 1/5/10 Wolf Spiders" }
+          ]
+        },
+        {
+          name: "Unlockable — Boss & Event Rewards",
+          items: [
+            { n: "Mom Genes", w: "Mutations", meta: "Attacks/blocks may summon a friendly Spiderling; +50% poison damage · Kill the Hedge Broodmother" },
+            { n: "Truffle Tussle", w: "Mutations", meta: "Unarmed hits may cause a fungal explosion (75 dmg) · Kill the Haze Lab Infected Ladybug" },
+            { n: "Mantsterious Stranger", w: "Mutations", meta: "Attacks have 2% chance to summon a friendly Mant · Kill the Mant" },
+            { n: "Apex Predator", w: "Mutations", meta: "Unlocks hidden powers in boss weapons · Kill the Mantis" },
+            { n: "Corporate Kickback", w: "Mutations", meta: "Blocked attacks can grant melee lifesteal · Kill Director Schmector" },
+            { n: "Shocking Dismissal", w: "Mutations", meta: "Blocked attacks can turn next hit into an AOE shock · Kill the Assistant Manager" },
+            { n: "Bardic Inspiration", w: "Mutations", meta: "Bow attacks may play a buffing bardic melody · Kill the Wasp Queen" },
+            { n: "Guard Dog", w: "Mutations", meta: "+Damage in defense events (10/25/50%) · Complete 1/4/9 Defense Events" },
+            { n: "Spore Lord", w: "Mutations", meta: "Explosive damage grants stacking random buffs · Kill the Infected Broodmother" },
+            { n: "Antbassador", w: "Mutations", meta: "Soldier ants turn neutral by phase · Befriend 1/2/3 Ant Queens" }
           ]
         }
       ]
     }
 
 ,
-
-    /* ---------------- CREATURES ---------------- */
-    {
-      id: "creatures",
-      title: "Creatures",
-      blurb: "The friends and foes of the Backyard. Passive creatures flee, neutral ones defend themselves if provoked, and hostile ones attack on sight. Bosses offer the toughest challenges — 3 story bosses and 4 optional, repeatable ones. New Game+ adds Infected variants (listed under Angry) and Tier-4 boss rematches dropping Infused Ooze.",
-      wiki: "Creatures",
-      groups: [
-        {
-          name: "Harmless",
-          items: [
-            { n: "Aphid", w: "Aphid", meta: "Flower Bed, Flooded Zone, Grasslands, Hedge, Oak Hill, Upper Grasslands · Loot: Aphid Honeydew, Raw Aphid Meat, Speed Droplet (steal)" },
-            { n: "Weevil", w: "Weevil", meta: "Flooded Zone, Grasslands, Hedge, Oak Hill, Upper Grasslands · Loot: Mushroom Chunk, Raw Weevil Meat, Weevil Nose" },
-            { n: "Grub", w: "Grub", meta: "Caverns, Grasslands, Oak Hill, Shed Surroundings, Spider Caves · Loot: Grub Sludge, Grub Hide, Raw Grub Meat" },
-            { n: "Gnat", w: "Gnat", meta: "Grasslands, Flooded Zone, Moldorc Highlands, Oak Hill, Undershed, Upper Grasslands · Loot: Gnat Fuzz, Raw Gnat Meat, food bits" },
-            { n: "Meaty Gnat", w: "Meaty_Gnat", meta: "Trash Heap · Loot: Candy Cornlet, Donut Chunk, Gnat Fuzz, Raw Gnat Meat" },
-            { n: "Tadpole", w: "Tadpole", meta: "Koi Pond · Loot: Algae, Lilypad Wax, Raw Tadpole Meat" },
-            { n: "Water Boatman", w: "Water_Boatman", meta: "Koi Pond · Loot: Algae, Water Boatman Fin" },
-            { n: "Scarab", w: "Scarab", meta: "Grasslands, Shed Surroundings, Termite Den, Undershed, Woodpile · Loot: Twinkling Shell" },
-            { n: "Red Ant Queen", w: "Red_Ant_Queen", meta: "Red Anthill · Loot: Queen Chunk, Head, Pheromone" },
-            { n: "Black Ant Queen", w: "Black_Ant_Queen", meta: "Black Anthill · Loot: Queen Chunk, Head, Pheromone" },
-            { n: "Fire Ant Queen", w: "Fire_Ant_Queen", meta: "Fire Anthill · Loot: Queen Chunk, Head, Pheromone" },
-            { n: "Baby Red Ant", w: "Baby_Red_Ant", meta: "Feed Red Ant Queen a Juicy Mushroom Sandwich" },
-            { n: "Baby Black Ant", w: "Baby_Black_Ant", meta: "Feed Black Ant Queen a Yummy Gum Sandwich" },
-            { n: "Baby Fire Ant", w: "Baby_Fire_Ant", meta: "Feed Fire Ant Queen a Tasty Toejam Sandwich" },
-            { n: "Crow", w: "Crow", meta: "Varies · Loot: Crow Feather, Crow Feather Piece" }
-          ]
-        },
-        {
-          name: "Neutral",
-          items: [
-            { n: "Red Worker Ant", w: "Red_Worker_Ant", meta: "Red/Abandoned Anthill, Grasslands, Flower Bed, Oak Hill · Loot: Red Ant Egg, Head, Part" },
-            { n: "Black Worker Ant", w: "Black_Worker_Ant", meta: "Black Anthill, Picnic Table, Sandbox, Shed, Trash Heap, Undershed, Grasslands · Loot: Black Ant Egg, Head, Part" },
-            { n: "Ladybug", w: "Ladybug", meta: "Grasslands, Flower Bed, Oak Hill · Loot: Ladybug Head, Ladybug Part" },
-            { n: "Bee", w: "Bee", meta: "Picnic Table; sparse elsewhere · Loot: Bee Fuzz, Bee Stinger" },
-            { n: "Firefly", w: "Firefly", meta: "Flooded Zone & Flower Bed (night) · Loot: Giddy Goop, Glow Goo, Iridescent Scale" },
-            { n: "Sickly Roly Poly", w: "Sickly_Roly_Poly", meta: "Western Grasslands · Loot: Roly Poly Part, Tough Gunk" },
-            { n: "Roly Poly", w: "Roly_Poly", meta: "Grasslands, Shed, Undershed, MIX.R sites · Loot: Roly Poly Part, Shell, Tough Gunk" },
-            { n: "Moth", w: "Moth", meta: "Moldorc Highlands, Upper Grasslands · Loot: Moth Fuzz, Moth Scale" }
-          ]
-        },
-        {
-          name: "Angry",
-          items: [
-            { n: "Red Soldier Ant", w: "Red_Soldier_Ant", meta: "Anthills, Grasslands, MIX.R · Loot: Acid Gland, Red Ant Head/Mandibles/Part · Neutral with full Red Ant Armor or Antbassador" },
-            { n: "Black Soldier Ant", w: "Black_Soldier_Ant", meta: "Black Anthill, Shed, Trash Heap, MIX.R · Loot: Black Ant Head/Mandibles/Part" },
-            { n: "Fire Worker Ant", w: "Fire_Worker_Ant", meta: "Fire Anthill, Upper Grasslands, labs, MIX.R · Loot: Fire Ant Egg/Head/Part" },
-            { n: "Fire Soldier Ant", w: "Fire_Soldier_Ant", meta: "Fire Anthill, Upper Grasslands, Mant fight · Loot: Fire Ant Head/Mandibles/Part" },
-            { n: "Lawn Mite", w: "Lawn_Mite", meta: "Grasslands, Flooded Zone, Caverns · Loot: Mite Fuzz" },
-            { n: "Dust Mite", w: "Dust_Mite", meta: "Shed Surroundings, Undershed · Loot: Dust Mite Fuzz" },
-            { n: "Larva", w: "Larva", meta: "Grasslands, Flooded Zone, Caverns, MIX.R · Loot: Acid Gland, Larva Spike" },
-            { n: "Ladybird Larva", w: "Ladybird_Larva", meta: "BBQ Spill, Moldorc Highlands, Upper Grasslands · Loot: Acid Gland, Insulating Larva Spike, Tough Gunk" },
-            { n: "Water Flea", w: "Water_Flea", meta: "Exposed Pipe, Flooded Zone, Koi Pond · Loot: Algae, Water Flea Meat" },
-            { n: "Mosquito", w: "Mosquito", meta: "Flooded Zone, Flower Bed, Undershed, Woodpile · Loot: Mosquito Beak, Mosquito Blood Sack" },
-            { n: "Stinkbug", w: "Stinkbug", meta: "Grasslands, Flower Bed · Loot: Stinkbug Gas Sack, Stinkbug Part" },
-            { n: "Bombardier Beetle", w: "Bombardier_Beetle", meta: "Flooded Zone, Grasslands · Loot: Boiling Gland, Bombardier Part" },
-            { n: "Spiderling", w: "Spiderling", meta: "Grasslands, Hedge, Spider Caves, Woodpile · Loot: Spider Chunk, Web Fiber" },
-            { n: "Orb Weaver Jr", w: "Orb_Weaver_Jr", meta: "Grasslands, Hedge, Flooded Zone, labs · Loot: Spider Chunk, Web Fiber" },
-            { n: "Orb Weaver", w: "Orb_Weaver", meta: "Flooded Zone, Flower Bed, Grasslands, Hedge, Spider Caves, Upper Grasslands · Loot: Spider Chunk, Web Fiber" },
-            { n: "Wolf Spider", w: "Wolf_Spider", meta: "Grasslands, Oak Hill, Sandbox, Shed, Spider Caves, Undershed, Woodpile · Loot: Spider Chunk, Fang, Venom" },
-            { n: "Diving Bell Spider", w: "Diving_Bell_Spider", meta: "Exposed Pipe, Koi Pond, Pond Caves/Depths/Lab · Loot: Diving Bell Spider Chunk, Web Fiber" },
-            { n: "Antlion", w: "Antlion", meta: "Antlion Burrows, Sandbox, MIX.R · Loot: Antlion Part, Antlion Pincer" },
-            { n: "RUZ.T", w: "RUZ.T", meta: "Hedge Lab & Outpost · Loot: Raw Science" },
-            { n: "TAYZ.T", w: "TAYZ.T", meta: "Labs & outposts · Loot: Raw Science, Unstable Capacitor" },
-            { n: "ARC.R", w: "ARC.R", meta: "Assistant Manager fight, Pond Lab · Loot: Raw Science" },
-            { n: "Infected Weevil", w: "Infected_Weevil", meta: "Haze, Grasslands (post Weed Killer) · Loot: Fungal Growth, Mushroom Chunk, Weevil Nose" },
-            { n: "Infected Mite", w: "Infected_Mite", meta: "Haze, Flower Bed (post Weed Killer) · Loot: Fungal Growth, Mite Fuzz" },
-            { n: "Infected Ladybug", w: "Infected_Ladybug", meta: "Haze, Grasslands/Flower Bed/Upper Grasslands (post Weed Killer) · Loot: Fungal Growth, Ladybug Head/Part" },
-            { n: "Infected Larva", w: "Infected_Larva", meta: "Haze & many biomes post Weed Killer · Loot: Acid Gland, Fungal Growth, Larva Spike" },
-            { n: "Infected Gnat", w: "Infected_Gnat", meta: "Haze, Grasslands/Flower Bed (post Weed Killer) · Loot: Fungal Growth, Gnat Fuzz, Raw Gnat Meat" }
-        ]
-        },
-        {
-          name: "Bosses",
-          items: [
-            { n: "Assistant Manager", w: "Assistant_Manager", meta: "Story boss · End of Black Anthill Lab · Robotic boss; summons TAYZ.T & ARC.R · Loot: Raw Science" },
-            { n: "Mant", w: "Mant", meta: "Story boss · Undershed Lab (needs all 4 Super BURG.L Chips) · Weak to Fresh — bring Mint weapons" },
-            { n: "Wasp Queen", w: "Wasp_Queen", meta: "Story boss · Wasp Nest in Brawny Boy Bin (Upper Yard) · Summon via Bee Bee Q Medley · Loot: Wasp Queen Wing/Chunk" },
-            { n: "Hedge Broodmother", w: "Hedge_Broodmother", meta: "Optional, repeatable · Burrow near Hedge Lab/Flingman Disc · Poison; summons Spiderlings · Loot: Broodmother Fang/Venom/Chunk" },
-            { n: "Mantis", w: "Mant", meta: "Optional, repeatable · Orchid pot on Shed porch · Summon via Orchid Mantis Kebab · Loot: Mantis Claw/Chunk" },
-            { n: "Director Schmector", w: "Director_Schmector", meta: "Optional secret boss · Mysterious Lab below Castle Moldorc · Final boss; required for the good ending" },
-            { n: "Infected Broodmother", w: "Infected_Broodmother", meta: "Optional, repeatable · Spider cave in the Haze (seal Haze Canister, summon w/ Moldy Hoagie) · Poison + Venom damage" },
-            { n: "Black Widow", w: "Black_Widow", meta: "Toughest non-boss creature · Upper Yard · Stacking venom · Loot: Black Widow Fang, Super Spider Venom" }
-          ]
-        }
-      ]
-    },
 
     /* ---------------- TOOLS & WEAPONS ---------------- */
     {
@@ -470,60 +475,46 @@ const GROUNDED_DATA = {
 
 ,
 
-    /* ---------------- QUESTS ---------------- */
+    /* ---------------- BIOMES ---------------- */
     {
-      id: "quests",
-      title: "Quests",
-      blurb: "Story Quests form the main game chain (tied to Biomes and Labs), while Tutorial Quests teach core mechanics on the side. BURG.L also hands out a large pool of apprentice and daily side quests.",
-      wiki: "Quests",
+      id: "biomes",
+      title: "Biomes",
+      blurb: "Unique environments scattered throughout the Backyard. The yard is split into the lower yard (where you start) and the late-game Upper Yard, which holds far stronger creatures and resources.",
+      wiki: "Biomes",
       groups: [
         {
-          name: "Story Quests",
+          name: "Surface Biomes",
           items: [
-            { n: "Investigate Surroundings", w: "Quests", meta: "Look around for what you can find; find more evidence · Prereq: start the game" },
-            { n: "Strange Signal", w: "Quests", meta: "Prereq: complete Investigate Surroundings" },
-            { n: "The Mysterious Machine", w: "Mysterious_Machine", meta: "Discover the Mysterious Machine" },
-            { n: "Grounded for Repairs", w: "Quests", meta: "Unblock the obstructed laser; find what's weakening a laser · Prereq: The Mysterious Machine" },
-            { n: "The Mysterious Machine Part 2", w: "Mysterious_Machine", meta: "Prereq: complete Grounded For Repairs" },
-            { n: "Explosion", w: "Quests", meta: "Investigate the Oak Tree explosion; explore the lab; help & chat with BURG.L · Prereq: Mysterious Machine Part 2" },
-            { n: "Random Access Memories", w: "Quests", meta: "Use the Biometric Scanner at the Oak Lab ASL Terminal; retrieve all four Super Chips · Prereq: Explosion" },
-            { n: "The Black Ant Lab", w: "Black_Anthill_Lab", meta: "Talk to BURG.L about the Black Anthill Lab" },
-            { n: "The Hedge Lab", w: "Hedge_Lab", meta: "Find & explore the Hedge Lab; get terminal password; retrieve the Hedge Super Chip" },
-            { n: "The Haze Lab", w: "Haze_Lab", meta: "Find & enter the Haze Lab; find & return the Haze Super Chip" },
-            { n: "The Pond", w: "Pond_Lab", meta: "Find the Pond Lab; switch all breakers; explore the submerged lab; return the Pond Super Chip" },
-            { n: "The Missing Scientist", w: "Quests", meta: "Prereq: complete Random Access Memories" },
-            { n: "Troubles Brewin'", w: "JavaMatic", meta: "Brew the Embiggening Cocktail at the JavaMatic; repair & defend the MIX.R modules · Prereq: The Missing Scientist" },
-            { n: "Go Big Or Never Go Home", w: "Quests", meta: "Install the Embiggening Cell in the SPAC.R and turn it on · Prereq: Troubles Brewin'" },
-            { n: "Milk Molars", w: "Milk_Molars", meta: "Collect a Milk Molar" },
-            { n: "Mega Milk Molars", w: "Milk_Molars", meta: "Collect a Mega Milk Molar" }
+            { n: "BBQ Spill", w: "BBQ_Spill", meta: "Notable: EverChar Coal Chunk · Landmark: Charcoal Hot Springs" },
+            { n: "Flooded Zone", w: "Flooded_Zone", meta: "Notable: Clay · Landmarks: Garden Gnome, La Bise Can, Rash, Squirts Carton" },
+            { n: "Flower Bed", w: "Flower_Bed", meta: "Notable: Flower Petal, Nectar · Landmarks: Armed Raspberry Punch-O, Field Station, Welp Flavordrink" },
+            { n: "Grasslands", w: "Grasslands", meta: "Notable: Mint Shard, Rotten Larva Blade · Many landmarks (Baseball, Frankenline, MIX.R, Mysterious Machine, Upper Yard Ascent…)" },
+            { n: "Haze", w: "Haze", meta: "Notable: Brittle Marble/Quartzite Shard, Fungal Growth, Mint Shard · Landmarks: Haze Lab, MIX.R, Peach Fuzz Punch-O" },
+            { n: "Hedge", w: "Hedge", meta: "Notable: Berry Chunk · Landmarks: Hedge Lab, Hedge Ascent, Flingman Flying Disc, MIX.R" },
+            { n: "Koi Pond", w: "Koi_Pond", meta: "Notable: Eelgrass Strand, Lilypad Wax, Raw Tadpole Meat, Water Boatman Fin · Landmarks: Depths Mouth, Sunken Pot, Wedding Ring" },
+            { n: "Moldorc Highlands", w: "Moldorc_Highlands", meta: "Notable: Pond Moss, Tiger Mosquito Beak · Landmarks: Castle Moldorc Playset, Mysterious Lab, MIX.R" },
+            { n: "Oak Hill", w: "Oak_Hill", meta: "Notable: Acorn Bits, Acorn Shell, Acorn Top · Landmarks: Oak Lab, Old Ant Hill" },
+            { n: "Picnic Table", w: "Picnic_Table", meta: "Notable: Crusty Roly Poly Legplates, Gum Nugget · Landmarks: Cooler Box, Minotaur Maze's End" },
+            { n: "Sandbox", w: "Sandbox", meta: "Notable: Antlion Part/Pincer, Spicy Shard · Landmarks: Sandbox Lab Outpost, Black Anthill Descent, MIX.R" },
+            { n: "Shed Surroundings", w: "Shed_Surroundings", meta: "Notable: Candy Cornlet, Dust Mite Fuzz, Gunpowder Clump, Twinkling Shell · Landmarks: Buster Cap Gun, Full-Sized SCA.B" },
+            { n: "Trash Heap", w: "Trash_Heap", meta: "Notable: Crusty Roly Poly Helmet, Rotten Food, Spicy Shard · Landmarks: Trashed AARTZ 3000, Crushed La Bise Can" },
+            { n: "Upper Grasslands", w: "Upper_Grasslands", meta: "Notable: Black Ox Horn/Part, Fire Ant Head/Part, Moth Fuzz/Scale, Tick Fang · Landmarks: JavaMatic, Lawnmower, Stump" },
+            { n: "Woodpile", w: "Woodpile", meta: "Notable: Wooden Splinter · Landmark: Field Station" }
           ]
         },
         {
-          name: "Tutorial Quests",
+          name: "Underground Biomes",
           items: [
-            { n: "A Little Slurp", w: "Quests", meta: "Find water (and clean water if Nasty Water drunk) · Trigger: reach 50% Water" },
-            { n: "A Small Snack", w: "Quests", meta: "Find & eat food; pick and eat a mushroom · Trigger: reach 50% Hunger" },
-            { n: "Rock Bottom", w: "Quests", meta: "Use the Resource Analyzer on Plant Fiber & Pebblet · Trigger: ~3.5 min without analyzing" },
-            { n: "Armed and Mini", w: "Quests", meta: "Prereq: complete Rock Bottom" },
-            { n: "Workbench Woes", w: "Quests", meta: "Trigger: one day passes without making a Workbench" },
-            { n: "Lucky Find", w: "Quests", meta: "Prereq: complete Workbench Woes" },
-            { n: "Advanced Bushcraft", w: "Quests", meta: "Craft a piece of armor · Prereq: complete Lucky Find" },
-            { n: "Apprentice Smith", w: "Quests", meta: "Trigger: obtain a Brittle Marble or Quartzite Shard" },
-            { n: "Build Shelter", w: "Quests", meta: "Trigger: after 17:00 on day one" },
-            { n: "Settling In", w: "Quests", meta: "Set respawn at your Lean-To · Prereq: complete Build Shelter" },
-            { n: "Catching Some Zs", w: "Quests", meta: "Sleep through the night at your lean-to · Trigger: after 22:00 day one" },
-            { n: "Light It Up", w: "Quests", meta: "Craft a torch · Trigger: enter a cave or nightfall" },
-            { n: "It's Just a Scratch", w: "Quests", meta: "Take any damage or perfect-block an attack" },
-            { n: "Bug Knowledge", w: "Quests", meta: "Trigger: one day passes without unlocking a Creature Card" },
-            { n: "Diving The Depths", w: "Quests", meta: "Trigger: drown in the Koi Pond with no diving gear" },
-            { n: "Spending Science", w: "Quests", meta: "Buy a Science Shop upgrade at the ASL Terminal · Prereq: 1st objective of Random Access Memories" }
-          ]
-        },
-        {
-          name: "BURG.L Side Quests",
-          items: [
-            { n: "Apprentice Quests (99 total)", w: "BURG.L_Quests", meta: "99 non-repeatable tasks given by BURG.L. Completing 20 unlocks daily quests." },
-            { n: "Daily Quests", w: "BURG.L_Quests", meta: "Repeatable daily tasks from BURG.L; rerollable once per day. Unlocked after 20 apprentice quests." }
+            { n: "Anthills", w: "Anthills", meta: "Notable: Ant Eggs & Mandibles (Black/Red/Fire), Marble/Quartzite Shards · Landmark: Black Anthill Lab" },
+            { n: "Antlion Burrows", w: "Antlion_Burrows", meta: "Notable: Crusty Roly Poly Breastplate, Salt Shard" },
+            { n: "Brawny Boy Bin", w: "Brawny_Boy_Bin", meta: "Notable: Wasp Paper · Landmarks: Wasp Nest, Large Disassembled TAYZ.T" },
+            { n: "Caverns", w: "Caverns", meta: "Notable: Rotten Red Ant Club · Landmark: Field Station" },
+            { n: "Pond Caves", w: "Pond_Caves", meta: "Notable: Rotten Fin Flops" },
+            { n: "Pond Depths", w: "Pond_Depths", meta: "Notable: Koi Fish Scale, Rotten Stinger Spear, Sunken Bone · Landmarks: Pond Lab, Sunken T-Rex" },
+            { n: "Spider Caves", w: "Spider_Caves", meta: "Notable: Web Fiber" },
+            { n: "Termite Den", w: "Termite_Den", meta: "Notable: Sturdy Marble/Quartzite Shard, Termite Chompers, Termite King Carapace, Termite Part" },
+            { n: "Undershed", w: "Undershed", meta: "Notable: Lint · Landmarks: Undershed Lab, Undershed Sinkhole" },
+            { n: "Upper Yard Caverns", w: "Upper_Yard_Caverns", meta: "Late-game cavern network beneath the Upper Yard" }
           ]
         }
       ]
@@ -531,81 +522,93 @@ const GROUNDED_DATA = {
 
 ,
 
-    /* ---------------- MUTATIONS ---------------- */
+    /* ---------------- CREATURES ---------------- */
     {
-      id: "mutations",
-      title: "Mutations",
-      blurb: "Perks earned by completing challenges. You start with 2 equip slots (up to 5 via Milk Molars). Most unlockable mutations have 3 phases that upgrade as you repeat a task. There are 41 total.",
-      wiki: "Mutations",
+      id: "creatures",
+      title: "Creatures",
+      blurb: "The friends and foes of the Backyard. Passive creatures flee, neutral ones defend themselves if provoked, and hostile ones attack on sight. Bosses offer the toughest challenges — 3 story bosses and 4 optional, repeatable ones. New Game+ adds Infected variants (listed under Angry) and Tier-4 boss rematches dropping Infused Ooze.",
+      wiki: "Creatures",
       groups: [
         {
-          name: "Purchasable (from BURG.L)",
+          name: "Harmless",
           items: [
-            { n: "Meat Shield", w: "Mutations", meta: "Increases Max Health by 50 · Buy from BURG.L (Raw Science)" },
-            { n: "Buff Lungs", w: "Mutations", meta: "Increases Max Stamina by 50 · Requires Red Anthill BURG.L Chip" },
-            { n: "Daredevil", w: "Mutations", meta: "−50% fall damage; can't die to fall damage at full health · Requires Hedge BURG.L Chip" },
-            { n: "Battle Buddies", w: "Mutations", meta: "−75% friendly-fire damage dealt & taken · Requires Pond BURG.L Chip" },
-            { n: "Dissection Expert", w: "Mutations", meta: "+10% creature loot drop-chance · Requires Forgotten BURG.L Chip" }
+            { n: "Aphid", w: "Aphid", meta: "Flower Bed, Flooded Zone, Grasslands, Hedge, Oak Hill, Upper Grasslands · Loot: Aphid Honeydew, Raw Aphid Meat, Speed Droplet (steal)" },
+            { n: "Weevil", w: "Weevil", meta: "Flooded Zone, Grasslands, Hedge, Oak Hill, Upper Grasslands · Loot: Mushroom Chunk, Raw Weevil Meat, Weevil Nose" },
+            { n: "Grub", w: "Grub", meta: "Caverns, Grasslands, Oak Hill, Shed Surroundings, Spider Caves · Loot: Grub Sludge, Grub Hide, Raw Grub Meat" },
+            { n: "Gnat", w: "Gnat", meta: "Grasslands, Flooded Zone, Moldorc Highlands, Oak Hill, Undershed, Upper Grasslands · Loot: Gnat Fuzz, Raw Gnat Meat, food bits" },
+            { n: "Meaty Gnat", w: "Meaty_Gnat", meta: "Trash Heap · Loot: Candy Cornlet, Donut Chunk, Gnat Fuzz, Raw Gnat Meat" },
+            { n: "Tadpole", w: "Tadpole", meta: "Koi Pond · Loot: Algae, Lilypad Wax, Raw Tadpole Meat" },
+            { n: "Water Boatman", w: "Water_Boatman", meta: "Koi Pond · Loot: Algae, Water Boatman Fin" },
+            { n: "Scarab", w: "Scarab", meta: "Grasslands, Shed Surroundings, Termite Den, Undershed, Woodpile · Loot: Twinkling Shell" },
+            { n: "Red Ant Queen", w: "Red_Ant_Queen", meta: "Red Anthill · Loot: Queen Chunk, Head, Pheromone" },
+            { n: "Black Ant Queen", w: "Black_Ant_Queen", meta: "Black Anthill · Loot: Queen Chunk, Head, Pheromone" },
+            { n: "Fire Ant Queen", w: "Fire_Ant_Queen", meta: "Fire Anthill · Loot: Queen Chunk, Head, Pheromone" },
+            { n: "Baby Red Ant", w: "Baby_Red_Ant", meta: "Feed Red Ant Queen a Juicy Mushroom Sandwich" },
+            { n: "Baby Black Ant", w: "Baby_Black_Ant", meta: "Feed Black Ant Queen a Yummy Gum Sandwich" },
+            { n: "Baby Fire Ant", w: "Baby_Fire_Ant", meta: "Feed Fire Ant Queen a Tasty Toejam Sandwich" },
+            { n: "Crow", w: "Crow", meta: "Varies · Loot: Crow Feather, Crow Feather Piece" }
           ]
         },
         {
-          name: "Unlockable — Weapon Mastery",
+          name: "Neutral",
           items: [
-            { n: "Lil Fist", w: "Mutations", meta: "Stacking unarmed damage buff; P3: every punch guarantees a 2nd hit · Kill 40/100/200 with fists" },
-            { n: "Chopper", w: "Mutations", meta: "Axe hits lower Bust/Chop/Stab resist; P3: negates stamina regen delay · Kill 40/100/200 with an Axe" },
-            { n: "Smasher", w: "Mutations", meta: "Hammer hits slow target attack speed; P3: +6 stun · Kill 40/100/200 with a Hammer" },
-            { n: "Javelineer", w: "Mutations", meta: "Spear hits reflect damage; +throw damage; P3: +30% charge damage · Kill 40/100/200 with a Spear" },
-            { n: "Assassin", w: "Mutations", meta: "Dagger hits inflict bleed; P3: −25% enemy bleed resist · Kill 40/100/200 with a Dagger" },
-            { n: "Sharpshooter", w: "Mutations", meta: "Bow/crossbow crit chance up; P3: candy arrows gain effects · Kill 40/100/200 with a Bow/Crossbow" },
-            { n: "Barbarian", w: "Mutations", meta: "Clubs trigger Rage (+damage, −block window); P3: regen while raged · Kill 40/100/200 with a Club" },
-            { n: "Blademaster", w: "Mutations", meta: "Sword hits lower enemy damage; P3: −90% exhaustion time · Kill 40/100/200 with a Sword" },
-            { n: "Whittle Wizard", w: "Mutations", meta: "Candy staffs apply element effects; P3: −50% staff stamina cost · Kill 40/100/200 with a Candy Staff" }
+            { n: "Red Worker Ant", w: "Red_Worker_Ant", meta: "Red/Abandoned Anthill, Grasslands, Flower Bed, Oak Hill · Loot: Red Ant Egg, Head, Part" },
+            { n: "Black Worker Ant", w: "Black_Worker_Ant", meta: "Black Anthill, Picnic Table, Sandbox, Shed, Trash Heap, Undershed, Grasslands · Loot: Black Ant Egg, Head, Part" },
+            { n: "Ladybug", w: "Ladybug", meta: "Grasslands, Flower Bed, Oak Hill · Loot: Ladybug Head, Ladybug Part" },
+            { n: "Bee", w: "Bee", meta: "Picnic Table; sparse elsewhere · Loot: Bee Fuzz, Bee Stinger" },
+            { n: "Firefly", w: "Firefly", meta: "Flooded Zone & Flower Bed (night) · Loot: Giddy Goop, Glow Goo, Iridescent Scale" },
+            { n: "Sickly Roly Poly", w: "Sickly_Roly_Poly", meta: "Western Grasslands · Loot: Roly Poly Part, Tough Gunk" },
+            { n: "Roly Poly", w: "Roly_Poly", meta: "Grasslands, Shed, Undershed, MIX.R sites · Loot: Roly Poly Part, Shell, Tough Gunk" },
+            { n: "Moth", w: "Moth", meta: "Moldorc Highlands, Upper Grasslands · Loot: Moth Fuzz, Moth Scale" }
           ]
         },
         {
-          name: "Unlockable — Utility & Gathering",
+          name: "Angry",
           items: [
-            { n: "Parry Master", w: "Mutations", meta: "Perfect blocks refund stamina (25/50/100) · Perfect Block 20/60/100 times" },
-            { n: "Grass Master", w: "Mutations", meta: "+Chopping efficiency; grass harvest refunds stamina · Chop 50/200/500 blades of grass" },
-            { n: "Rock Cracker", w: "Mutations", meta: "+Busting efficiency (50/75/100%) · Bust 25/60/105 rocks" },
-            { n: "Hauling Hero", w: "Mutations", meta: "+Hauling Strength (+5/+10/+15) · Reach Coziness Level 2/3/4" },
-            { n: "Coup de Grass", w: "Mutations", meta: "+Crit chance (2.5/5%) · Find 4-Leaf Clover landmark; roll a 20 at Minotaur Maze's End" },
-            { n: "Trapper PEEP.R", w: "Mutations", meta: "+Crit damage (20/40/60%) · Obtain 20/40/60 Gold Creature Cards" },
-            { n: "Rascal Rogue", w: "Mutations", meta: "Melee hits can steal loot (2/5/10%) · Find 1/4/7 Statue Figurines" },
-            { n: "Juicy", w: "Mutations", meta: "Thirst decreases 50% slower · Discover 5 Juice Boxes" },
-            { n: "Natural Explorer", w: "Mutations", meta: "+Movement Speed (20/35/50%, out of combat) · Discover 20/50/80 Landmarks" },
-            { n: "Merteen", w: "Mutations", meta: "+10% underwater oxygen, +15% swim speed · Discover 5 Koi Pond landmarks" },
-            { n: "Cardio Fan", w: "Mutations", meta: "+Stamina regen, −exhaustion time · Exhaust the player 100/250/500 times" },
-            { n: "Reliable Friend", w: "Mutations", meta: "+Revive speed (25/50/75%) · Revive a friend 5/15/30 times" }
-          ]
+            { n: "Red Soldier Ant", w: "Red_Soldier_Ant", meta: "Anthills, Grasslands, MIX.R · Loot: Acid Gland, Red Ant Head/Mandibles/Part · Neutral with full Red Ant Armor or Antbassador" },
+            { n: "Black Soldier Ant", w: "Black_Soldier_Ant", meta: "Black Anthill, Shed, Trash Heap, MIX.R · Loot: Black Ant Head/Mandibles/Part" },
+            { n: "Fire Worker Ant", w: "Fire_Worker_Ant", meta: "Fire Anthill, Upper Grasslands, labs, MIX.R · Loot: Fire Ant Egg/Head/Part" },
+            { n: "Fire Soldier Ant", w: "Fire_Soldier_Ant", meta: "Fire Anthill, Upper Grasslands, Mant fight · Loot: Fire Ant Head/Mandibles/Part" },
+            { n: "Lawn Mite", w: "Lawn_Mite", meta: "Grasslands, Flooded Zone, Caverns · Loot: Mite Fuzz" },
+            { n: "Dust Mite", w: "Dust_Mite", meta: "Shed Surroundings, Undershed · Loot: Dust Mite Fuzz" },
+            { n: "Larva", w: "Larva", meta: "Grasslands, Flooded Zone, Caverns, MIX.R · Loot: Acid Gland, Larva Spike" },
+            { n: "Ladybird Larva", w: "Ladybird_Larva", meta: "BBQ Spill, Moldorc Highlands, Upper Grasslands · Loot: Acid Gland, Insulating Larva Spike, Tough Gunk" },
+            { n: "Water Flea", w: "Water_Flea", meta: "Exposed Pipe, Flooded Zone, Koi Pond · Loot: Algae, Water Flea Meat" },
+            { n: "Mosquito", w: "Mosquito", meta: "Flooded Zone, Flower Bed, Undershed, Woodpile · Loot: Mosquito Beak, Mosquito Blood Sack" },
+            { n: "Stinkbug", w: "Stinkbug", meta: "Grasslands, Flower Bed · Loot: Stinkbug Gas Sack, Stinkbug Part" },
+            { n: "Bombardier Beetle", w: "Bombardier_Beetle", meta: "Flooded Zone, Grasslands · Loot: Boiling Gland, Bombardier Part" },
+            { n: "Spiderling", w: "Spiderling", meta: "Grasslands, Hedge, Spider Caves, Woodpile · Loot: Spider Chunk, Web Fiber" },
+            { n: "Orb Weaver Jr", w: "Orb_Weaver_Jr", meta: "Grasslands, Hedge, Flooded Zone, labs · Loot: Spider Chunk, Web Fiber" },
+            { n: "Orb Weaver", w: "Orb_Weaver", meta: "Flooded Zone, Flower Bed, Grasslands, Hedge, Spider Caves, Upper Grasslands · Loot: Spider Chunk, Web Fiber" },
+            { n: "Wolf Spider", w: "Wolf_Spider", meta: "Grasslands, Oak Hill, Sandbox, Shed, Spider Caves, Undershed, Woodpile · Loot: Spider Chunk, Fang, Venom" },
+            { n: "Diving Bell Spider", w: "Diving_Bell_Spider", meta: "Exposed Pipe, Koi Pond, Pond Caves/Depths/Lab · Loot: Diving Bell Spider Chunk, Web Fiber" },
+            { n: "Antlion", w: "Antlion", meta: "Antlion Burrows, Sandbox, MIX.R · Loot: Antlion Part, Antlion Pincer" },
+            { n: "RUZ.T", w: "RUZ.T", meta: "Hedge Lab & Outpost · Loot: Raw Science" },
+            { n: "TAYZ.T", w: "TAYZ.T", meta: "Labs & outposts · Loot: Raw Science, Unstable Capacitor" },
+            { n: "ARC.R", w: "ARC.R", meta: "Assistant Manager fight, Pond Lab · Loot: Raw Science" },
+            { n: "Infected Weevil", w: "Infected_Weevil", meta: "Haze, Grasslands (post Weed Killer) · Loot: Fungal Growth, Mushroom Chunk, Weevil Nose" },
+            { n: "Infected Mite", w: "Infected_Mite", meta: "Haze, Flower Bed (post Weed Killer) · Loot: Fungal Growth, Mite Fuzz" },
+            { n: "Infected Ladybug", w: "Infected_Ladybug", meta: "Haze, Grasslands/Flower Bed/Upper Grasslands (post Weed Killer) · Loot: Fungal Growth, Ladybug Head/Part" },
+            { n: "Infected Larva", w: "Infected_Larva", meta: "Haze & many biomes post Weed Killer · Loot: Acid Gland, Fungal Growth, Larva Spike" },
+            { n: "Infected Gnat", w: "Infected_Gnat", meta: "Haze, Grasslands/Flower Bed (post Weed Killer) · Loot: Fungal Growth, Gnat Fuzz, Raw Gnat Meat" }
+        ]
         },
         {
-          name: "Unlockable — Defensive & Elemental",
+          name: "Bosses",
           items: [
-            { n: "Fresh Defense", w: "Mutations", meta: "+Gas/burn resistance, −sizzle rate · Eat 1/5/10 Mint Shards" },
-            { n: "Spicy Safety", w: "Mutations", meta: "−Smash/stab damage taken (25/50%) · Eat 1/3 Spicy Shards" },
-            { n: "Sour Sensation", w: "Mutations", meta: "Reflects damage to attacker (50/100/150%) · Eat 1/5/10 Sour Lumps" },
-            { n: "Ant-nihilator", w: "Mutations", meta: "+Damage vs ants; P3: +10% ant damage resist · Kill 15/45/100 Black/Fire/Red Ants" },
-            { n: "Mithridatism", w: "Mutations", meta: "+Poison resistance (25/50/75%) · Kill 1/5/10 Wolf Spiders" }
-          ]
-        },
-        {
-          name: "Unlockable — Boss & Event Rewards",
-          items: [
-            { n: "Mom Genes", w: "Mutations", meta: "Attacks/blocks may summon a friendly Spiderling; +50% poison damage · Kill the Hedge Broodmother" },
-            { n: "Truffle Tussle", w: "Mutations", meta: "Unarmed hits may cause a fungal explosion (75 dmg) · Kill the Haze Lab Infected Ladybug" },
-            { n: "Mantsterious Stranger", w: "Mutations", meta: "Attacks have 2% chance to summon a friendly Mant · Kill the Mant" },
-            { n: "Apex Predator", w: "Mutations", meta: "Unlocks hidden powers in boss weapons · Kill the Mantis" },
-            { n: "Corporate Kickback", w: "Mutations", meta: "Blocked attacks can grant melee lifesteal · Kill Director Schmector" },
-            { n: "Shocking Dismissal", w: "Mutations", meta: "Blocked attacks can turn next hit into an AOE shock · Kill the Assistant Manager" },
-            { n: "Bardic Inspiration", w: "Mutations", meta: "Bow attacks may play a buffing bardic melody · Kill the Wasp Queen" },
-            { n: "Guard Dog", w: "Mutations", meta: "+Damage in defense events (10/25/50%) · Complete 1/4/9 Defense Events" },
-            { n: "Spore Lord", w: "Mutations", meta: "Explosive damage grants stacking random buffs · Kill the Infected Broodmother" },
-            { n: "Antbassador", w: "Mutations", meta: "Soldier ants turn neutral by phase · Befriend 1/2/3 Ant Queens" }
+            { n: "Assistant Manager", w: "Assistant_Manager", meta: "Story boss · End of Black Anthill Lab · Robotic boss; summons TAYZ.T & ARC.R · Loot: Raw Science" },
+            { n: "Mant", w: "Mant", meta: "Story boss · Undershed Lab (needs all 4 Super BURG.L Chips) · Weak to Fresh — bring Mint weapons" },
+            { n: "Wasp Queen", w: "Wasp_Queen", meta: "Story boss · Wasp Nest in Brawny Boy Bin (Upper Yard) · Summon via Bee Bee Q Medley · Loot: Wasp Queen Wing/Chunk" },
+            { n: "Hedge Broodmother", w: "Hedge_Broodmother", meta: "Optional, repeatable · Burrow near Hedge Lab/Flingman Disc · Poison; summons Spiderlings · Loot: Broodmother Fang/Venom/Chunk" },
+            { n: "Mantis", w: "Mant", meta: "Optional, repeatable · Orchid pot on Shed porch · Summon via Orchid Mantis Kebab · Loot: Mantis Claw/Chunk" },
+            { n: "Director Schmector", w: "Director_Schmector", meta: "Optional secret boss · Mysterious Lab below Castle Moldorc · Final boss; required for the good ending" },
+            { n: "Infected Broodmother", w: "Infected_Broodmother", meta: "Optional, repeatable · Spider cave in the Haze (seal Haze Canister, summon w/ Moldy Hoagie) · Poison + Venom damage" },
+            { n: "Black Widow", w: "Black_Widow", meta: "Toughest non-boss creature · Upper Yard · Stacking venom · Loot: Black Widow Fang, Super Spider Venom" }
           ]
         }
       ]
     }
+   
 
     /* More categories (Creatures, Tools, Armor, Trinkets, Consumables,
        Edibles, Resources, Mutations, Status Effects, Quests, Achievements,
