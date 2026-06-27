@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounded — Wiki & Progress Tracker</title>
+<meta name="description" content="A self-hosted, TechDocs-style Grounded companion with a built-in progress tracker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg-alt:#f6f8f7; --sidebar:#fafbfa;
+    --border:#e3e8e5; --text:#1d2521; --text-soft:#5d6b63;
+    --accent:#3d8b5f; --accent-soft:#e7f3ec; --amber:#d98a2b;
+    --track:#e3e8e5; --max-w:900px; --radius:8px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:16px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:12px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem}
+  .brand .dot{width:12px;height:12px;border-radius:3px;background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .brand small{font-weight:500;color:var(--text-soft);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
+  .topbar-progress{margin-left:auto;display:flex;align-items:center;gap:12px;min-width:240px}
+  .topbar-progress .label{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--text-soft);white-space:nowrap}
+  .topbar-progress .pct{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.85rem;color:var(--accent);min-width:42px;text-align:right}
+  .mini-track{flex:1;height:8px;background:var(--track);border-radius:999px;overflow:hidden;min-width:90px}
+  .mini-fill{height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--accent));border-radius:999px;transition:width .4s ease}
+
+  .shell{display:flex;max-width:1260px;margin:0 auto}
+  .sidebar{width:230px;flex-shrink:0;border-right:1px solid var(--border);background:var(--sidebar);padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
+  .sidebar h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-soft);margin:16px 0 8px;font-weight:600}
+  .sidebar a{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;color:var(--text);font-size:.9rem}
+  .sidebar a:hover{background:var(--accent-soft);text-decoration:none}
+  .sidebar a .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-soft);white-space:nowrap}
+
+  .content{flex:1;min-width:0;padding:36px 44px 120px;max-width:var(--max-w)}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+  h1{font-size:2.4rem;line-height:1.1;margin:0 0 14px;letter-spacing:-.02em}
+  .lede{font-size:1.1rem;color:var(--text-soft);margin:0 0 18px}
+  .chip{font-family:'IBM Plex Mono',monospace;font-size:.74rem;background:var(--bg-alt);border:1px solid var(--border);padding:4px 10px;border-radius:999px;color:var(--text-soft);display:inline-block;margin:0 6px 6px 0}
+
+  .callout{background:var(--accent-soft);border:1px solid #cfe6d8;border-left:4px solid var(--accent);border-radius:var(--radius);padding:14px 18px;margin:20px 0;font-size:.95rem}
+  .callout strong{color:var(--accent)}
+
+  section.cat{scroll-margin-top:72px;margin-bottom:40px}
+  .cat-head{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+  .cat-head h2{font-size:1.5rem;margin:0;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+  .cat-head h2::before{content:"";width:4px;height:22px;background:var(--accent);border-radius:2px}
+  .cat-head .cstat{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--text-soft);display:flex;align-items:center;gap:8px}
+  .cat-head .ctrack{width:90px;height:6px;background:var(--track);border-radius:999px;overflow:hidden}
+  .cat-head .cfill{height:100%;width:0;background:var(--accent);transition:width .3s}
+  .cat-blurb{color:var(--text-soft);font-size:.95rem;margin:0 0 16px}
+  .cat-ref{font-size:.8rem}
+
+  .group{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden;background:var(--bg)}
+  .group-head{display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-alt);border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+  .group-head .gname{font-weight:600;font-size:.95rem}
+  .group-head .gp{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--text-soft)}
+  .group-head .chev{transition:transform .2s;color:var(--text-soft);font-size:.8rem}
+  .group.collapsed .chev{transform:rotate(-90deg)}
+  .group.collapsed .items{display:none}
+  .items{padding:6px}
+
+  label.item{display:flex;align-items:flex-start;gap:12px;padding:9px 10px;border-radius:6px;cursor:pointer;transition:background .15s}
+  label.item:hover{background:var(--bg-alt)}
+  label.item input{appearance:none;-webkit-appearance:none;width:18px;height:18px;margin-top:14px;flex-shrink:0;border:2px solid var(--border);border-radius:5px;cursor:pointer;position:relative;transition:all .15s}
+  label.item input:checked{background:var(--accent);border-color:var(--accent)}
+  label.item input:checked::after{content:"";position:absolute;left:4px;top:0;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .icon{width:34px;height:34px;flex-shrink:0;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.95rem;color:#fff;background:var(--accent)}
+  .body{flex:1;min-width:0}
+  .body .name{font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:7px}
+  .body .name .lnk{font-size:.72rem;color:var(--text-soft);font-weight:400}
+  .body .meta{font-size:.83rem;color:var(--text-soft);margin-top:2px;line-height:1.45}
+  label.item input:checked ~ .body .name{color:var(--text-soft);text-decoration:line-through}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 26px}
+  .btn{font-family:'IBM Plex Mono',monospace;font-size:.8rem;border:1px solid var(--border);background:var(--bg);color:var(--text);padding:7px 14px;border-radius:6px;cursor:pointer;transition:all .15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+
+  footer{border-top:1px solid var(--border);padding:24px 44px;color:var(--text-soft);font-size:.82rem;max-width:var(--max-w)}
+  footer a{color:var(--text-soft);text-decoration:underline}
+
+  @media(max-width:900px){
+    .sidebar{display:none}
+    .content{padding:26px 18px 100px}
+    h1{font-size:1.9rem}
+    .topbar{padding:10px 16px}
+    .topbar-progress{min-width:150px}
+    .topbar-progress .label{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span>Grounded <small>Wiki &amp; Tracker</small></div>
+  <div class="topbar-progress" title="Overall completion across all tracked categories">
+    <span class="label">Overall</span>
+    <div class="mini-track"><div class="mini-fill" id="overallFill"></div></div>
+    <span class="pct" id="overallPct">0%</span>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar" id="sidebar">
+    <h4>Guide</h4>
+    <a href="#overview"><span>Overview</span></a>
+    <h4>Progress</h4>
+    <div id="navCats"></div>
+    <h4>Controls</h4>
+    <a href="#" id="navReset"><span>Reset progress</span></a>
+  </nav>
+
+  <main class="content">
+    <div id="overview">
+      <div class="eyebrow">Survival · Obsidian Entertainment</div>
+      <h1>Grounded</h1>
+      <p class="lede">A first- and third-person cooperative survival game set in the micro-world of a suburban backyard. Track every system in the game below — your progress is saved in this browser.</p>
+      <div>
+        <span class="chip">Xbox &amp; PC · Sep 27 2022</span>
+        <span class="chip">Switch / PS4 / PS5 · Apr 16 2024</span>
+        <span class="chip" id="verChip">v1.4</span>
+      </div>
+      <p style="margin-top:18px">You play as one of four shrunken teens — Max, Willow, Pete, or Hoops — reduced to the size of an ant. Survive solo or with up to three other players: work through story Quests, explore the Backyard's Biomes, battle its Creatures, gather Resources, craft Tools and Armor, and build bases while hunting for food and water to stay alive.</p>
+      <div class="callout"><strong>How this works:</strong> Tick off each entry as you discover or complete it. Progress saves automatically in your browser. The bar in the top-right shows overall completion across every category. Each entry's <strong>↗</strong> links to its source page on the Grounded Wiki for full detail.</div>
+      <div class="controls">
+        <button class="btn" id="expandAll">Expand all</button>
+        <button class="btn" id="collapseAll">Collapse all</button>
+        <button class="btn" id="resetAll">Reset progress</button>
+      </div>
+    </div>
+    <div id="cats"></div>
+  </main>
+</div>
+
+<footer>
+  Built for <a href="https://grounded.niharmasurkar.com">grounded.niharmasurkar.com</a> — a self-hosted fan tracker.
+  Game data &amp; text adapted from the <a href="https://grounded.fandom.com/wiki/Grounded">Grounded Wiki</a> under CC-BY-SA.
+  Grounded is a trademark of Obsidian Entertainment / Xbox Game Studios. Unofficial; not affiliated with Obsidian or Microsoft.
+</footer>
+
+<script src="data.js"></script>
+<script>
+const STORE_KEY = "grounded_progress_v2";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e){ state = {}; }
+const save = () => { try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const key = (cat,gi,ii) => `${cat}:${gi}:${ii}`;
+
+document.getElementById("verChip").textContent = GROUNDED_DATA.meta.version;
+
+const catsEl = document.getElementById("cats");
+const navCatsEl = document.getElementById("navCats");
+
+GROUNDED_DATA.categories.forEach(cat => {
+  // sidebar link
+  const na = document.createElement("a");
+  na.href = "#cat-" + cat.id;
+  na.innerHTML = `<span>${esc(cat.title)}</span><span class="tag" id="tag-${cat.id}">0/0</span>`;
+  navCatsEl.appendChild(na);
+
+  // section
+  const sec = document.createElement("section");
+  sec.className = "cat";
+  sec.id = "cat-" + cat.id;
+  let html = `
+    <div class="cat-head">
+      <h2>${esc(cat.title)}</h2>
+      <div class="cstat">
+        <div class="ctrack"><div class="cfill" id="cfill-${cat.id}"></div></div>
+        <span id="cp-${cat.id}">0/0</span>
+      </div>
+    </div>
+    <p class="cat-blurb">${esc(cat.blurb)} <a class="cat-ref" href="${WIKI}${cat.wiki}" target="_blank" rel="noopener">View on wiki ↗</a></p>`;
+
+  cat.groups.forEach((g, gi) => {
+    html += `<div class="group" data-cat="${cat.id}" data-gi="${gi}">
+      <div class="group-head"><span class="chev">▾</span><span class="gname">${esc(g.name)}</span><span class="gp" id="gp-${cat.id}-${gi}">0/${g.items.length}</span></div>
+      <div class="items">`;
+    g.items.forEach((it, ii) => {
+      const k = key(cat.id, gi, ii);
+      const checked = state[k] ? "checked" : "";
+      const letter = esc((it.n[0]||"?").toUpperCase());
+      const link = it.w ? `<a class="lnk" href="${WIKI}${it.w}" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗</a>` : "";
+      html += `<label class="item">
+        <input type="checkbox" data-k="${k}" ${checked}>
+        <span class="icon" aria-hidden="true">${letter}</span>
+        <span class="body">
+          <span class="name">${esc(it.n)} ${link}</span>
+          ${it.meta ? `<span class="meta">${esc(it.meta)}</span>` : ""}
+        </span>
+      </label>`;
+    });
+    html += `</div></div>`;
+  });
+  sec.innerHTML = html;
+  catsEl.appendChild(sec);
+});
+
+function recompute(){
+  let total=0, done=0;
+  GROUNDED_DATA.categories.forEach(cat => {
+    let ct=0, cd=0;
+    cat.groups.forEach((g, gi) => {
+      let gd=0;
+      g.items.forEach((_, ii) => { if(state[key(cat.id,gi,ii)]) gd++; });
+      const gpEl=document.getElementById(`gp-${cat.id}-${gi}`);
+      if(gpEl) gpEl.textContent=`${gd}/${g.items.length}`;
+      ct+=g.items.length; cd+=gd;
+    });
+    total+=ct; done+=cd;
+    const pct = ct? Math.round(cd/ct*100):0;
+    const cf=document.getElementById(`cfill-${cat.id}`); if(cf) cf.style.width=pct+"%";
+    const cp=document.getElementById(`cp-${cat.id}`); if(cp) cp.textContent=`${cd}/${ct}`;
+    const tg=document.getElementById(`tag-${cat.id}`); if(tg) tg.textContent=`${cd}/${ct}`;
+  });
+  const opct = total? Math.round(done/total*100):0;
+  document.getElementById("overallFill").style.width=opct+"%";
+  document.getElementById("overallPct").textContent=opct+"%";
+}
+recompute();
+
+document.addEventListener("change", e => {
+  if(e.target.matches('input[type="checkbox"][data-k]')){
+    state[e.target.dataset.k]=e.target.checked; save(); recompute();
+  }
+});
+document.querySelectorAll(".group-head").forEach(h => {
+  h.addEventListener("click", e => {
+    if(e.target.tagName==="A"||e.target.tagName==="INPUT") return;
+    h.parentElement.classList.toggle("collapsed");
+  });
+});
+const expand = v => document.querySelectorAll(".group").forEach(g => g.classList.toggle("collapsed", !v));
+document.getElementById("expandAll").onclick = () => expand(true);
+document.getElementById("collapseAll").onclick = () => expand(false);
+function doReset(){
+  if(confirm("Reset all progress? This clears every checkbox.")){
+    state={}; save();
+    document.querySelectorAll('input[type="checkbox"][data-k]').forEach(c => c.checked=false);
+    recompute();
+  }
+}
+document.getElementById("resetAll").onclick = doReset;
+document.getElementById("navReset").onclick = e => { e.preventDefault(); doReset(); };
+</script>
+</body>
+</html>
