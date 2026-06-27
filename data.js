@@ -14,7 +14,7 @@ const WIKI = "https://grounded.fandom.com/wiki/";
 const GROUNDED_DATA = {
   meta: {
     version: "1.4 — Fully Yoked (April 16, 2024)",
-    updated: "Biomes, Creatures, Tools & Weapons, Armor, and Trinkets complete."
+    updated: "Biomes, Creatures, Tools & Weapons, Armor, Trinkets, Quests, and all 41 Mutations complete."
   },
 
   categories: [
@@ -463,6 +463,145 @@ const GROUNDED_DATA = {
           name: "Other (Playgrounds only)",
           items: [
             { n: "Web Clippers", w: "Web_Clippers", meta: "T1 · Playgrounds-only · Perk: +Web Damage (2× vs web harvestables)" }
+          ]
+        }
+      ]
+    }
+
+,
+
+    /* ---------------- QUESTS ---------------- */
+    {
+      id: "quests",
+      title: "Quests",
+      blurb: "Story Quests form the main game chain (tied to Biomes and Labs), while Tutorial Quests teach core mechanics on the side. BURG.L also hands out a large pool of apprentice and daily side quests.",
+      wiki: "Quests",
+      groups: [
+        {
+          name: "Story Quests",
+          items: [
+            { n: "Investigate Surroundings", w: "Quests", meta: "Look around for what you can find; find more evidence · Prereq: start the game" },
+            { n: "Strange Signal", w: "Quests", meta: "Prereq: complete Investigate Surroundings" },
+            { n: "The Mysterious Machine", w: "Mysterious_Machine", meta: "Discover the Mysterious Machine" },
+            { n: "Grounded for Repairs", w: "Quests", meta: "Unblock the obstructed laser; find what's weakening a laser · Prereq: The Mysterious Machine" },
+            { n: "The Mysterious Machine Part 2", w: "Mysterious_Machine", meta: "Prereq: complete Grounded For Repairs" },
+            { n: "Explosion", w: "Quests", meta: "Investigate the Oak Tree explosion; explore the lab; help & chat with BURG.L · Prereq: Mysterious Machine Part 2" },
+            { n: "Random Access Memories", w: "Quests", meta: "Use the Biometric Scanner at the Oak Lab ASL Terminal; retrieve all four Super Chips · Prereq: Explosion" },
+            { n: "The Black Ant Lab", w: "Black_Anthill_Lab", meta: "Talk to BURG.L about the Black Anthill Lab" },
+            { n: "The Hedge Lab", w: "Hedge_Lab", meta: "Find & explore the Hedge Lab; get terminal password; retrieve the Hedge Super Chip" },
+            { n: "The Haze Lab", w: "Haze_Lab", meta: "Find & enter the Haze Lab; find & return the Haze Super Chip" },
+            { n: "The Pond", w: "Pond_Lab", meta: "Find the Pond Lab; switch all breakers; explore the submerged lab; return the Pond Super Chip" },
+            { n: "The Missing Scientist", w: "Quests", meta: "Prereq: complete Random Access Memories" },
+            { n: "Troubles Brewin'", w: "JavaMatic", meta: "Brew the Embiggening Cocktail at the JavaMatic; repair & defend the MIX.R modules · Prereq: The Missing Scientist" },
+            { n: "Go Big Or Never Go Home", w: "Quests", meta: "Install the Embiggening Cell in the SPAC.R and turn it on · Prereq: Troubles Brewin'" },
+            { n: "Milk Molars", w: "Milk_Molars", meta: "Collect a Milk Molar" },
+            { n: "Mega Milk Molars", w: "Milk_Molars", meta: "Collect a Mega Milk Molar" }
+          ]
+        },
+        {
+          name: "Tutorial Quests",
+          items: [
+            { n: "A Little Slurp", w: "Quests", meta: "Find water (and clean water if Nasty Water drunk) · Trigger: reach 50% Water" },
+            { n: "A Small Snack", w: "Quests", meta: "Find & eat food; pick and eat a mushroom · Trigger: reach 50% Hunger" },
+            { n: "Rock Bottom", w: "Quests", meta: "Use the Resource Analyzer on Plant Fiber & Pebblet · Trigger: ~3.5 min without analyzing" },
+            { n: "Armed and Mini", w: "Quests", meta: "Prereq: complete Rock Bottom" },
+            { n: "Workbench Woes", w: "Quests", meta: "Trigger: one day passes without making a Workbench" },
+            { n: "Lucky Find", w: "Quests", meta: "Prereq: complete Workbench Woes" },
+            { n: "Advanced Bushcraft", w: "Quests", meta: "Craft a piece of armor · Prereq: complete Lucky Find" },
+            { n: "Apprentice Smith", w: "Quests", meta: "Trigger: obtain a Brittle Marble or Quartzite Shard" },
+            { n: "Build Shelter", w: "Quests", meta: "Trigger: after 17:00 on day one" },
+            { n: "Settling In", w: "Quests", meta: "Set respawn at your Lean-To · Prereq: complete Build Shelter" },
+            { n: "Catching Some Zs", w: "Quests", meta: "Sleep through the night at your lean-to · Trigger: after 22:00 day one" },
+            { n: "Light It Up", w: "Quests", meta: "Craft a torch · Trigger: enter a cave or nightfall" },
+            { n: "It's Just a Scratch", w: "Quests", meta: "Take any damage or perfect-block an attack" },
+            { n: "Bug Knowledge", w: "Quests", meta: "Trigger: one day passes without unlocking a Creature Card" },
+            { n: "Diving The Depths", w: "Quests", meta: "Trigger: drown in the Koi Pond with no diving gear" },
+            { n: "Spending Science", w: "Quests", meta: "Buy a Science Shop upgrade at the ASL Terminal · Prereq: 1st objective of Random Access Memories" }
+          ]
+        },
+        {
+          name: "BURG.L Side Quests",
+          items: [
+            { n: "Apprentice Quests (99 total)", w: "BURG.L_Quests", meta: "99 non-repeatable tasks given by BURG.L. Completing 20 unlocks daily quests." },
+            { n: "Daily Quests", w: "BURG.L_Quests", meta: "Repeatable daily tasks from BURG.L; rerollable once per day. Unlocked after 20 apprentice quests." }
+          ]
+        }
+      ]
+    }
+
+,
+
+    /* ---------------- MUTATIONS ---------------- */
+    {
+      id: "mutations",
+      title: "Mutations",
+      blurb: "Perks earned by completing challenges. You start with 2 equip slots (up to 5 via Milk Molars). Most unlockable mutations have 3 phases that upgrade as you repeat a task. There are 41 total.",
+      wiki: "Mutations",
+      groups: [
+        {
+          name: "Purchasable (from BURG.L)",
+          items: [
+            { n: "Meat Shield", w: "Mutations", meta: "Increases Max Health by 50 · Buy from BURG.L (Raw Science)" },
+            { n: "Buff Lungs", w: "Mutations", meta: "Increases Max Stamina by 50 · Requires Red Anthill BURG.L Chip" },
+            { n: "Daredevil", w: "Mutations", meta: "−50% fall damage; can't die to fall damage at full health · Requires Hedge BURG.L Chip" },
+            { n: "Battle Buddies", w: "Mutations", meta: "−75% friendly-fire damage dealt & taken · Requires Pond BURG.L Chip" },
+            { n: "Dissection Expert", w: "Mutations", meta: "+10% creature loot drop-chance · Requires Forgotten BURG.L Chip" }
+          ]
+        },
+        {
+          name: "Unlockable — Weapon Mastery",
+          items: [
+            { n: "Lil Fist", w: "Mutations", meta: "Stacking unarmed damage buff; P3: every punch guarantees a 2nd hit · Kill 40/100/200 with fists" },
+            { n: "Chopper", w: "Mutations", meta: "Axe hits lower Bust/Chop/Stab resist; P3: negates stamina regen delay · Kill 40/100/200 with an Axe" },
+            { n: "Smasher", w: "Mutations", meta: "Hammer hits slow target attack speed; P3: +6 stun · Kill 40/100/200 with a Hammer" },
+            { n: "Javelineer", w: "Mutations", meta: "Spear hits reflect damage; +throw damage; P3: +30% charge damage · Kill 40/100/200 with a Spear" },
+            { n: "Assassin", w: "Mutations", meta: "Dagger hits inflict bleed; P3: −25% enemy bleed resist · Kill 40/100/200 with a Dagger" },
+            { n: "Sharpshooter", w: "Mutations", meta: "Bow/crossbow crit chance up; P3: candy arrows gain effects · Kill 40/100/200 with a Bow/Crossbow" },
+            { n: "Barbarian", w: "Mutations", meta: "Clubs trigger Rage (+damage, −block window); P3: regen while raged · Kill 40/100/200 with a Club" },
+            { n: "Blademaster", w: "Mutations", meta: "Sword hits lower enemy damage; P3: −90% exhaustion time · Kill 40/100/200 with a Sword" },
+            { n: "Whittle Wizard", w: "Mutations", meta: "Candy staffs apply element effects; P3: −50% staff stamina cost · Kill 40/100/200 with a Candy Staff" }
+          ]
+        },
+        {
+          name: "Unlockable — Utility & Gathering",
+          items: [
+            { n: "Parry Master", w: "Mutations", meta: "Perfect blocks refund stamina (25/50/100) · Perfect Block 20/60/100 times" },
+            { n: "Grass Master", w: "Mutations", meta: "+Chopping efficiency; grass harvest refunds stamina · Chop 50/200/500 blades of grass" },
+            { n: "Rock Cracker", w: "Mutations", meta: "+Busting efficiency (50/75/100%) · Bust 25/60/105 rocks" },
+            { n: "Hauling Hero", w: "Mutations", meta: "+Hauling Strength (+5/+10/+15) · Reach Coziness Level 2/3/4" },
+            { n: "Coup de Grass", w: "Mutations", meta: "+Crit chance (2.5/5%) · Find 4-Leaf Clover landmark; roll a 20 at Minotaur Maze's End" },
+            { n: "Trapper PEEP.R", w: "Mutations", meta: "+Crit damage (20/40/60%) · Obtain 20/40/60 Gold Creature Cards" },
+            { n: "Rascal Rogue", w: "Mutations", meta: "Melee hits can steal loot (2/5/10%) · Find 1/4/7 Statue Figurines" },
+            { n: "Juicy", w: "Mutations", meta: "Thirst decreases 50% slower · Discover 5 Juice Boxes" },
+            { n: "Natural Explorer", w: "Mutations", meta: "+Movement Speed (20/35/50%, out of combat) · Discover 20/50/80 Landmarks" },
+            { n: "Merteen", w: "Mutations", meta: "+10% underwater oxygen, +15% swim speed · Discover 5 Koi Pond landmarks" },
+            { n: "Cardio Fan", w: "Mutations", meta: "+Stamina regen, −exhaustion time · Exhaust the player 100/250/500 times" },
+            { n: "Reliable Friend", w: "Mutations", meta: "+Revive speed (25/50/75%) · Revive a friend 5/15/30 times" }
+          ]
+        },
+        {
+          name: "Unlockable — Defensive & Elemental",
+          items: [
+            { n: "Fresh Defense", w: "Mutations", meta: "+Gas/burn resistance, −sizzle rate · Eat 1/5/10 Mint Shards" },
+            { n: "Spicy Safety", w: "Mutations", meta: "−Smash/stab damage taken (25/50%) · Eat 1/3 Spicy Shards" },
+            { n: "Sour Sensation", w: "Mutations", meta: "Reflects damage to attacker (50/100/150%) · Eat 1/5/10 Sour Lumps" },
+            { n: "Ant-nihilator", w: "Mutations", meta: "+Damage vs ants; P3: +10% ant damage resist · Kill 15/45/100 Black/Fire/Red Ants" },
+            { n: "Mithridatism", w: "Mutations", meta: "+Poison resistance (25/50/75%) · Kill 1/5/10 Wolf Spiders" }
+          ]
+        },
+        {
+          name: "Unlockable — Boss & Event Rewards",
+          items: [
+            { n: "Mom Genes", w: "Mutations", meta: "Attacks/blocks may summon a friendly Spiderling; +50% poison damage · Kill the Hedge Broodmother" },
+            { n: "Truffle Tussle", w: "Mutations", meta: "Unarmed hits may cause a fungal explosion (75 dmg) · Kill the Haze Lab Infected Ladybug" },
+            { n: "Mantsterious Stranger", w: "Mutations", meta: "Attacks have 2% chance to summon a friendly Mant · Kill the Mant" },
+            { n: "Apex Predator", w: "Mutations", meta: "Unlocks hidden powers in boss weapons · Kill the Mantis" },
+            { n: "Corporate Kickback", w: "Mutations", meta: "Blocked attacks can grant melee lifesteal · Kill Director Schmector" },
+            { n: "Shocking Dismissal", w: "Mutations", meta: "Blocked attacks can turn next hit into an AOE shock · Kill the Assistant Manager" },
+            { n: "Bardic Inspiration", w: "Mutations", meta: "Bow attacks may play a buffing bardic melody · Kill the Wasp Queen" },
+            { n: "Guard Dog", w: "Mutations", meta: "+Damage in defense events (10/25/50%) · Complete 1/4/9 Defense Events" },
+            { n: "Spore Lord", w: "Mutations", meta: "Explosive damage grants stacking random buffs · Kill the Infected Broodmother" },
+            { n: "Antbassador", w: "Mutations", meta: "Soldier ants turn neutral by phase · Befriend 1/2/3 Ant Queens" }
           ]
         }
       ]
