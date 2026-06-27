@@ -14,7 +14,7 @@ const WIKI = "https://grounded.fandom.com/wiki/";
 const GROUNDED_DATA = {
   meta: {
     version: "1.4 — Fully Yoked (April 16, 2024)",
-    updated: "Biomes, Creatures, Tools & Weapons, Armor, Trinkets, Quests, and Mutations complete."
+    updated: "Biomes, Creatures, Tools & Weapons, Armor, and Trinkets complete."
   },
 
   categories: [
@@ -61,13 +61,15 @@ const GROUNDED_DATA = {
           ]
         }
       ]
-    },
+    }
+
+,
 
     /* ---------------- CREATURES ---------------- */
     {
       id: "creatures",
       title: "Creatures",
-      blurb: "The friends and foes of the Backyard. Passive creatures flee, neutral ones defend themselves if provoked, and hostile ones attack on sight. Bosses offer the toughest challenges — 3 story bosses and 4 optional, repeatable ones. New Game+ adds Infected variants listed under Angry, and Tier-4 boss rematches dropping Infused Ooze.",
+      blurb: "The friends and foes of the Backyard. Passive creatures flee, neutral ones defend themselves if provoked, and hostile ones attack on sight. Bosses offer the toughest challenges — 3 story bosses and 4 optional, repeatable ones. New Game+ adds Infected variants (listed under Angry) and Tier-4 boss rematches dropping Infused Ooze.",
       wiki: "Creatures",
       groups: [
         {
@@ -132,7 +134,7 @@ const GROUNDED_DATA = {
             { n: "Infected Ladybug", w: "Infected_Ladybug", meta: "Haze, Grasslands/Flower Bed/Upper Grasslands (post Weed Killer) · Loot: Fungal Growth, Ladybug Head/Part" },
             { n: "Infected Larva", w: "Infected_Larva", meta: "Haze & many biomes post Weed Killer · Loot: Acid Gland, Fungal Growth, Larva Spike" },
             { n: "Infected Gnat", w: "Infected_Gnat", meta: "Haze, Grasslands/Flower Bed (post Weed Killer) · Loot: Fungal Growth, Gnat Fuzz, Raw Gnat Meat" }
-          ]
+        ]
         },
         {
           name: "Bosses",
@@ -141,7 +143,7 @@ const GROUNDED_DATA = {
             { n: "Mant", w: "Mant", meta: "Story boss · Undershed Lab (needs all 4 Super BURG.L Chips) · Weak to Fresh — bring Mint weapons" },
             { n: "Wasp Queen", w: "Wasp_Queen", meta: "Story boss · Wasp Nest in Brawny Boy Bin (Upper Yard) · Summon via Bee Bee Q Medley · Loot: Wasp Queen Wing/Chunk" },
             { n: "Hedge Broodmother", w: "Hedge_Broodmother", meta: "Optional, repeatable · Burrow near Hedge Lab/Flingman Disc · Poison; summons Spiderlings · Loot: Broodmother Fang/Venom/Chunk" },
-            { n: "Mantis", w: "Mantis", meta: "Optional, repeatable · Orchid pot on Shed porch · Summon via Orchid Mantis Kebab · Loot: Mantis Claw/Chunk" },
+            { n: "Mantis", w: "Mant", meta: "Optional, repeatable · Orchid pot on Shed porch · Summon via Orchid Mantis Kebab · Loot: Mantis Claw/Chunk" },
             { n: "Director Schmector", w: "Director_Schmector", meta: "Optional secret boss · Mysterious Lab below Castle Moldorc · Final boss; required for the good ending" },
             { n: "Infected Broodmother", w: "Infected_Broodmother", meta: "Optional, repeatable · Spider cave in the Haze (seal Haze Canister, summon w/ Moldy Hoagie) · Poison + Venom damage" },
             { n: "Black Widow", w: "Black_Widow", meta: "Toughest non-boss creature · Upper Yard · Stacking venom · Loot: Black Widow Fang, Super Spider Venom" }
@@ -325,13 +327,15 @@ const GROUNDED_DATA = {
           ]
         }
       ]
-    },
+    }
+
+,
 
     /* ---------------- ARMOR ---------------- */
     {
       id: "armor",
       title: "Armor",
-      blurb: "Craftable armor defends against the backyard's hazards. Every 3-piece set has a full-set bonus, and all pieces can be upgraded at the Smithing Station. The Sleek path adds a unique effect. Each entry below is a complete set.",
+      blurb: "Craftable armor defends against the backyard's hazards. Every 3-piece set has a full-set bonus, and all pieces can be upgraded at the Smithing Station (the Sleek path adds a unique effect). Each entry below is a complete set.",
       wiki: "Armor_(Grounded)",
       groups: [
         {
@@ -342,17 +346,17 @@ const GROUNDED_DATA = {
             { n: "Grub Armor", w: "Grub_Armor", meta: "T1 · Medium (20% DR) · Piece: Tenderfoot Offense / Hyperstamina · Set: Optimized Offense (−10% stamina regen time)" },
             { n: "Red Ant Armor", w: "Red_Ant_Armor", meta: "T1 · Light (10% DR) · Piece: +Hauling Strength · Set: HumAnt (Red ants ignore the player)" },
             { n: "Red Strategist Armor", w: "Red_Strategist_Armor", meta: "T1 · Medium (20% DR) · Piece: +Summon Aggro/Thorns · Set: Red Ant Commander (10% to summon a Red Soldier Ant)" },
-            { n: "Bee Armor", w: "Bee_Armor", meta: "T2 · Light · Stamina-focused set" },
+            { n: "Bee Armor", w: "Bee_Armor", meta: "T2 · Light · Stamina-focused set (full detail on wiki)" },
             { n: "Black Ant Armor", w: "Black_Ant_Armor", meta: "T2 · Medium · Digging/looting-focused set" },
-            { n: "Black Strategist Armor", w: "Black_Strategist_Armor", meta: "T2 · Medium · Summon-focused Black Ant Queen variant" },
-            { n: "Koi Scale Armor", w: "Koi_Scale_Armor", meta: "T2 · Heavy · Defensive set from Koi Fish Scales" },
+            { n: "Black Strategist Armor", w: "Black_Strategist_Armor", meta: "T2 · Medium · Summon-focused (Black Ant Queen variant)" },
+            { n: "Koi Scale Armor", w: "Koi_Scale_Armor", meta: "T2 · Heavy · Strong defensive set from Koi Fish Scales" },
             { n: "Ladybug Armor", w: "Ladybug_Armor", meta: "T2 · Medium · Healing/survivability set" },
             { n: "Spider Armor", w: "Spider_Armor", meta: "T2 · Medium · Set: +25% stamina regeneration" },
             { n: "Antlion Armor", w: "Antlion_Armor", meta: "T3 · Light · Trip/perfect-block focused set" },
             { n: "Assassin's Armor", w: "Assassin%27s_Armor", meta: "T3 · Light · Critical-hit / stealth-focused set" },
-            { n: "Black Ox Armor", w: "Black_Ox_Armor", meta: "T3 · Heavy · Top-tier tank set from Black Ox parts" },
+            { n: "Black Ox Armor", w: "Black_Ox_Armor", meta: "T3 · Heavy · Top-tier tank set (Black Ox parts)" },
             { n: "Fire Ant Armor", w: "Fire_Ant_Armor", meta: "T3 · Medium · Corrosion / spicy-focused set" },
-            { n: "Fire Strategist Armor", w: "Fire_Strategist_Armor", meta: "T3 · Medium · Summon-focused Fire Ant Queen variant" },
+            { n: "Fire Strategist Armor", w: "Fire_Strategist_Armor", meta: "T3 · Medium · Summon-focused (Fire Ant Queen variant)" },
             { n: "Moldy Matriarch Armor", w: "Moldy_Matriarch_Armor", meta: "T3 · Medium · Infected Broodmother set; fungal/explosive theme" },
             { n: "Moth Armor", w: "Moth_Armor", meta: "T3 · Light · Mobility / stamina set from Moth parts" },
             { n: "Mother Demon Armor", w: "Mother_Demon_Armor", meta: "T3 · Heavy · Hedge Broodmother set; melee/aggression theme" },
@@ -364,14 +368,16 @@ const GROUNDED_DATA = {
         {
           name: "Standalone Pieces & Pet Attire",
           items: [
-            { n: "Individual Head pieces", w: "Armor_(Grounded)#Head", meta: "Single-slot hats/masks such as Mask of the Mother Demon, Mant Mask, and Gas Mask" },
-            { n: "Individual Body pieces", w: "Armor_(Grounded)#Body", meta: "Single-slot chest items not part of a 3-piece set" },
-            { n: "Individual Leg pieces", w: "Armor_(Grounded)#Legs", meta: "Single-slot leg items not part of a 3-piece set" },
-            { n: "Pet Attire", w: "Armor_(Grounded)#Pet_Attire", meta: "Cosmetic/protective attire for pets" }
+            { n: "Individual Head pieces", w: "Armor_(Grounded)#Head", meta: "Single-slot hats/masks (Mask of the Mother Demon, Mant Mask, Gas Mask, etc.) — see wiki" },
+            { n: "Individual Body pieces", w: "Armor_(Grounded)#Body", meta: "Single-slot chest items not part of a 3-piece set — see wiki" },
+            { n: "Individual Leg pieces", w: "Armor_(Grounded)#Legs", meta: "Single-slot leg items not part of a 3-piece set — see wiki" },
+            { n: "Pet Attire", w: "Armor_(Grounded)#Pet_Attire", meta: "Cosmetic/protective attire for pets — see wiki" }
           ]
         }
       ]
-    },
+    }
+
+,
 
     /* ---------------- TRINKETS ---------------- */
     {
@@ -400,7 +406,7 @@ const GROUNDED_DATA = {
             { n: "Mantis Trinket", w: "Mantis_Trinket", meta: "T3 · Mantis · Perk: Finale Crit Boost" },
             { n: "Science Cone", w: "Science_Cone", meta: "T3 · NG+ creatures · Randomized status effect" },
             { n: "Speed Droplet", w: "Speed_Droplet", meta: "T3 · Steal from Aphids · Perk: The Quickness" },
-            { n: "Unstable Capacitor", w: "Unstable_Capacitor", meta: "T3 · Raid TAYZ.T · Perk: Short Circuit" },
+            { n: "Unstable Capacitor", w: "Unstable_Capacitator", meta: "T3 · Raid TAYZ.T · Perk: Short Circuit" },
             { n: "Volatile Fang", w: "Volatile_Fang", meta: "T3 · Steal from Infected Wolf Spiders · Perk: Explosive Perfect Block" },
             { n: "Wasp Queen Trinket", w: "Wasp_Queen_Trinket", meta: "T3 · Wasp Queen · Perk: Arrow Refund" },
             { n: "Giddy Goop", w: "Giddy_Goop", meta: "T2 · Firefly · Perk: Finale Goo" },
@@ -426,12 +432,12 @@ const GROUNDED_DATA = {
         {
           name: "Ominent Badges",
           items: [
-            { n: "Biomedical Badge", w: "Biomedical_Badge", meta: "T2 · Sandbox buried treasure near zipline · +Trickle Regen, Food Conversion" },
+            { n: "Biomedical Badge", w: "Biomedical_Badge", meta: "T2 · Sandbox (buried treasure near zipline) · +Trickle Regen, Food Conversion" },
             { n: "Compliance Badge", w: "Compliance_Badge", meta: "T2 · Under outlet at Hedge outskirts · +Parry Heal, −Damage Resist" },
             { n: "Defense Badge", w: "Defense_Badge", meta: "T2 · Haze Lab crevice · +Damage Resist, −Attack Damage" },
-            { n: "Entomologist Badge", w: "Entomologist_Badge", meta: "T2 · BBQ Spill under charcoal · +Attack, Imperfect Block" },
+            { n: "Entomologist Badge", w: "Entomologist_Badge", meta: "T2 · BBQ Spill (under charcoal) · +Attack, Imperfect Block" },
             { n: "Health And Safety Badge", w: "Health_And_Safety_Badge", meta: "T2 · Wasp Nest · +Life Steal, −Damage Resist" },
-            { n: "Intern Badge", w: "Intern_Badge", meta: "T2 · Upper Grasslands, T3 chopping tool needed · +Hauling, −Movement Speed" },
+            { n: "Intern Badge", w: "Intern_Badge", meta: "T2 · Upper Grasslands (T3 chopping tool needed) · +Hauling, −Movement Speed" },
             { n: "Toxicology Badge", w: "Toxicology_Badge", meta: "T2 · Near Pond Lab breaker · +Gas Resist, +Dust Guard, −Poison Resist" }
           ]
         },
@@ -445,24 +451,25 @@ const GROUNDED_DATA = {
             { n: "Deuces Sign", w: "Deuces_Sign", meta: "T3 · Under porch near Rake Rock Point · Perk: Deuces" },
             { n: "Power Droplet", w: "Power_Droplet", meta: "T3 · Wall crevice behind Brawny Boy Bin · Perk: Fury (unarmed)" },
             { n: "Rotten Berry Charm", w: "Rotten_Berry_Charm", meta: "T3 · Berry Outpost · Perk: Rotten Deluge" },
-            { n: "Shield Solidifier", w: "Shield_Solidifier", meta: "T3 · Sour Wormholes rocket in Brawny Boy Bin · Perk: +Block Strength" },
+            { n: "Shield Solidifier", w: "Shield_Solidifier", meta: "T3 · Sour Wormholes rocket (Brawny Boy Bin) · Perk: +Block Strength" },
             { n: "Thor's Pendant", w: "Thor%27s_Pendant", meta: "T3 · Crevice on the fallen Stump · Perk: Pendant" },
-            { n: "Wittle Widowling", w: "Wittle_Widowling", meta: "T3 · Black Widow Web Sac in Brawny Boy Bin · Perk: Widowling Wrangler" },
-            { n: "Left Elf Charm", w: "Left_Elf_Charm", meta: "T2 · Outpost outside Pond Dome, Assistant Manager Keycard required · +Invincible Shielding" },
+            { n: "Wittle Widowling", w: "Wittle_Widowling", meta: "T3 · Black Widow Web Sac (Brawny Boy Bin) · Perk: Widowling Wrangler" },
+            { n: "Left Elf Charm", w: "Left_Elf_Charm", meta: "T2 · Outpost outside Pond Dome (Asst. Manager Keycard) · +Invincible Shielding" },
             { n: "Right Elf Charm", w: "Right_Elf_Charm", meta: "T2 · Chest in Stump Lab Outpost · +Invincible Attack" },
-            { n: "Sticky Fingers", w: "Sticky_Fingers", meta: "T2 · Chewed Gum in Upper Grasslands toolbox, Bomb Arrow + T3 bow required · Steal Item" }
+            { n: "Sticky Fingers", w: "Sticky_Fingers", meta: "T2 · Chewed Gum in Upper Grasslands toolbox (Bomb Arrow + T3 bow) · Steal Item" }
           ]
         },
         {
           name: "Other (Playgrounds only)",
           items: [
-            { n: "Web Clippers", w: "Web_Clippers", meta: "T1 · Playgrounds-only · Perk: +Web Damage, 2× vs web harvestables" }
+            { n: "Web Clippers", w: "Web_Clippers", meta: "T1 · Playgrounds-only · Perk: +Web Damage (2× vs web harvestables)" }
           ]
         }
       ]
     },
 
     /* ---------------- QUESTS ---------------- */
+        /* ---------------- QUESTS ---------------- */
     {
       id: "quests",
       title: "Quests",
@@ -472,38 +479,106 @@ const GROUNDED_DATA = {
         {
           name: "Main Story Progression",
           items: [
-            { n: "Investigate Surroundings", w: "Investigate_Surroundings_(Quest)", meta: "Start the game · Look around and find more evidence" },
-            { n: "Strange Signal", w: "Strange_Signal_(Quest)", meta: "Prerequisite: Complete Investigate Surroundings · Track the signal to its source · Use the Resource Analyzer" },
-            { n: "The Mysterious Machine", w: "The_Mysterious_Machine_(Quest)", meta: "Trigger: Discover the Mysterious Machine · Investigate the Mysterious Machine" },
-            { n: "Grounded for Repairs", w: "Grounded_for_Repairs_(Quest)", meta: "Prerequisite: Complete The Mysterious Machine · Unblock the obstructed laser · Find what is weakening one of the lasers" },
-            { n: "The Mysterious Machine Part 2", w: "The_Mysterious_Machine_Part_2_(Quest)", meta: "Prerequisite: Complete Grounded for Repairs · Investigate the machine further" },
-            { n: "Explosion", w: "Explosion_(Quest)", meta: "Prerequisite: Complete The Mysterious Machine Part 2 · Investigate the Oak Tree explosion · Explore the Oak Lab · Help BURG.L stand · Chat with BURG.L" },
-            { n: "Random Access Memories", w: "Random_Access_Memories_(Quest)", meta: "Prerequisite: Complete Explosion · Use the ASL Terminal biometric scanner · Retrieve the Super Chips for BURG.L" },
-            { n: "The Missing Scientist", w: "The_Missing_Scientist_(Quest)", meta: "Prerequisite: Complete Random Access Memories · Locate Wendell's SCA.B · Enter the Undershed · Find Wendell's lab · Speak to Dr. Tully" },
-            { n: "Troubles Brewin'", w: "Troubles_Brewin%27_(Quest)", meta: "Prerequisite: Complete The Missing Scientist · Go to the JavaMatic · Brew the Embiggening Cocktail · Defend the MIX.R modules · Retrieve the filled Embiggening Cell" },
-            { n: "Go Big Or Never Go Home", w: "Go_Big_Or_Never_Go_Home_(Quest)", meta: "Prerequisite: Complete Troubles Brewin' · Return to the SPAC.R · Install the Embiggening Cell · Turn on the SPAC.R to go home" }
+            {
+              n: "Investigate Surroundings",
+              w: "Investigate_Surroundings_(Quest)",
+              meta: "Start the game · Look around and find more evidence"
+            },
+            {
+              n: "Strange Signal",
+              w: "Strange_Signal_(Quest)",
+              meta: "Prerequisite: Complete Investigate Surroundings · Track the signal to its source · Use the Resource Analyzer"
+            },
+            {
+              n: "The Mysterious Machine",
+              w: "The_Mysterious_Machine_(Quest)",
+              meta: "Trigger: Discover the Mysterious Machine · Investigate the Mysterious Machine"
+            },
+            {
+              n: "Grounded for Repairs",
+              w: "Grounded_for_Repairs_(Quest)",
+              meta: "Prerequisite: Complete The Mysterious Machine · Unblock the obstructed laser · Find what is weakening one of the lasers"
+            },
+            {
+              n: "The Mysterious Machine Part 2",
+              w: "The_Mysterious_Machine_Part_2_(Quest)",
+              meta: "Prerequisite: Complete Grounded for Repairs · Investigate the machine further"
+            },
+            {
+              n: "Explosion",
+              w: "Explosion_(Quest)",
+              meta: "Prerequisite: Complete The Mysterious Machine Part 2 · Investigate the Oak Tree explosion · Explore the Oak Lab · Help BURG.L stand · Chat with BURG.L"
+            },
+            {
+              n: "Random Access Memories",
+              w: "Random_Access_Memories_(Quest)",
+              meta: "Prerequisite: Complete Explosion · Use the ASL Terminal biometric scanner · Retrieve the Super Chips for BURG.L"
+            },
+            {
+              n: "The Missing Scientist",
+              w: "The_Missing_Scientist_(Quest)",
+              meta: "Prerequisite: Complete Random Access Memories · Locate Wendell's SCA.B · Enter the Undershed · Find Wendell's lab · Speak to Dr. Tully"
+            },
+            {
+              n: "Troubles Brewin'",
+              w: "Troubles_Brewin%27_(Quest)",
+              meta: "Prerequisite: Complete The Missing Scientist · Go to the JavaMatic · Brew the Embiggening Cocktail · Defend the MIX.R modules · Retrieve the filled Embiggening Cell"
+            },
+            {
+              n: "Go Big Or Never Go Home",
+              w: "Go_Big_Or_Never_Go_Home_(Quest)",
+              meta: "Prerequisite: Complete Troubles Brewin' · Return to the SPAC.R · Install the Embiggening Cell · Turn on the SPAC.R to go home"
+            }
           ]
         },
         {
           name: "BURG.L Super Chip Labs",
           items: [
-            { n: "The Hedge Lab", w: "The_Hedge_Lab_(Quest)", meta: "Trigger: Talk to BURG.L about the Hedge Lab · Find the Hedge Lab · Explore the lab · Find the terminal password · Retrieve the Hedge Super Chip" },
-            { n: "The Pond", w: "The_Pond_(Quest)", meta: "Trigger: Talk to BURG.L about the Pond Lab · Find the Pond Lab · Explore the depths · Switch on all breakers · Retrieve the Pond Super Chip" },
-            { n: "The Haze Lab", w: "The_Haze_Lab_(Quest)", meta: "Trigger: Talk to BURG.L about the Haze Lab · Find and enter the Haze Lab · Retrieve the Haze Super Chip" },
-            { n: "The Black Ant Lab", w: "The_Black_Ant_Lab_(Quest)", meta: "Trigger: Talk to BURG.L about the Black Anthill Lab · Investigate the Black Ant Lab · Terminate the Assistant Manager · Retrieve the Black Ant Hill Super Chip" }
+            {
+              n: "The Hedge Lab",
+              w: "The_Hedge_Lab_(Quest)",
+              meta: "Trigger: Talk to BURG.L about the Hedge Lab · Find the Hedge Lab · Explore the lab · Find the terminal password · Retrieve the Hedge Super Chip"
+            },
+            {
+              n: "The Pond",
+              w: "The_Pond_(Quest)",
+              meta: "Trigger: Talk to BURG.L about the Pond Lab · Find the Pond Lab · Explore the depths · Switch on all breakers · Retrieve the Pond Super Chip"
+            },
+            {
+              n: "The Haze Lab",
+              w: "The_Haze_Lab_(Quest)",
+              meta: "Trigger: Talk to BURG.L about the Haze Lab · Find and enter the Haze Lab · Retrieve the Haze Super Chip"
+            },
+            {
+              n: "The Black Ant Lab",
+              w: "The_Black_Ant_Lab_(Quest)",
+              meta: "Trigger: Talk to BURG.L about the Black Anthill Lab · Investigate the Black Ant Lab · Terminate the Assistant Manager · Retrieve the Black Ant Hill Super Chip"
+            }
           ]
         },
         {
           name: "Collectible-Triggered Quests",
           items: [
-            { n: "Milk Molars", w: "Milk_Molars_(Quest)", meta: "Trigger: Collect a Milk Molar · See BURG.L about Milk Molars" },
-            { n: "Mega Milk Molars", w: "Mega_Milk_Molars_(Quest)", meta: "Trigger: Collect a Mega Milk Molar · See BURG.L about Mega Milk Molars" }
+            {
+              n: "Milk Molars",
+              w: "Milk_Molars_(Quest)",
+              meta: "Trigger: Collect a Milk Molar · See BURG.L about Milk Molars"
+            },
+            {
+              n: "Mega Milk Molars",
+              w: "Mega_Milk_Molars_(Quest)",
+              meta: "Trigger: Collect a Mega Milk Molar · See BURG.L about Mega Milk Molars"
+            }
           ]
         },
         {
           name: "Side Quests",
           items: [
-            { n: "BURG.L Quests", w: "BURG.L_Quests", meta: "Given by BURG.L · 99 non-repeatable apprentice quests · Daily quests unlock after completing 20 apprentice quests" }
+            {
+              n: "BURG.L Quests",
+              w: "BURG.L_Quests",
+              meta: "Given by BURG.L · 99 non-repeatable apprentice quests · Daily quests unlock after completing 20 apprentice quests"
+            }
           ]
         }
       ]
@@ -594,8 +669,8 @@ const GROUNDED_DATA = {
         }
       ]
     }
-
-    /* More categories such as Consumables, Edibles, Resources, Status Effects,
-       Achievements, Creature Cards, and others can be appended here in subsequent passes. */
+    /* More categories (Creatures, Tools, Armor, Trinkets, Consumables,
+       Edibles, Resources, Mutations, Status Effects, Quests, Achievements,
+       Creature Cards …) are appended here in subsequent passes. */
   ]
 };
